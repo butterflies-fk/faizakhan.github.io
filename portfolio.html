@@ -15,16 +15,49 @@
 
 <!--HEADER-->
 <div class="header">
-  <h1>"Unstoppable Starts With Confidence"</h1>
+  <h1 id="quote-header"></h1> <!-- Changed id for dynamic content -->
 </div>
 
-</html>
+<script>
+// Array of motivational quotes
+const quotes = [
+  "Rise above, always.",
+  "Progress over perfection.",
+  "Chase the impossible.",
+  "Strength lies within.",
+  "Trust the process.",
+  "Dream, then do.",
+  "Stay relentless.",
+  "Fear less, live more.",
+  "Make it happen.",
+  "You are the answer."
+];
+
+// Function to change the quote
+function changeQuote() {
+  const quoteHeader = document.getElementById('quote-header');
+  const randomIndex = Math.floor(Math.random() * quotes.length);
+  quoteHeader.textContent = quotes[randomIndex];
+
+  // Add fade-in effect when the quote changes
+  quoteHeader.style.opacity = 0;
+  setTimeout(() => {
+    quoteHeader.style.opacity = 1;
+  }, 100);
+}
+
+// Change quote every 7 seconds (7000 ms)
+setInterval(changeQuote, 7000);
+
+// Initially set a quote
+changeQuote();
+</script>
 
 <!--TOP NAV-->
 <div class="topnav">
   <a href="index.html">Home</a>
   <a class="active" href="portfolio.html">Portfolio</a>
-  <a href="links.html">Quick Links</a>
+  <a href="certifications.html">Certificates</a>
 </div>
 
 <!--HOME HEADERS-->
@@ -39,7 +72,8 @@
     <img src="hacknight.webp" alt="Presentation at HackKnight">
     <div>
       <h2>HalalBytes</h2>
-      <p>HalalBytes is a project I worked on during my first hackathon, where we won Best Beginner Hack! My team and I tackled challenges with API calls, Firebase Real-Time Database, and trying to integrate the two smoothly. Despite initial struggles, we pushed through with persistence and teamwork, ultimately reaching the prototyping stage. It was my first time using Figma, which proved to be an invaluable tool for visualizing our ideas and iterating on designs. The experience was both challenging and rewarding, giving me a deeper appreciation for both development and design.</p>
+      <p>HalalBytes is a project from my first hackathon, where my team won Best Beginner Hack. We faced challenges with API calls and integrating Firebase Real-Time Database, but our persistence and teamwork led us to the prototyping stage. It was also my first time using Figma, which was crucial for visualizing and iterating on our designs. The experience deepened my appreciation for both development and design. Check out the project on <a href="https://devpost.com/software/halal-bytes" target="_blank">Devpost</a>.</p>
+
     </div>
   </div>
   
@@ -47,7 +81,7 @@
     <img src="website.webp" alt="Sociology Website Screenshot">
     <div>
       <h2>QC Sociology - Department Webmaster</h2>
-      <p>As the Department Webmaster for the Queens College Sociology Department, I focus on enhancing the department's digital presence by developing and maintaining web pages, showcasing program details, faculty profiles, and resources. I design engaging graphics and produce professional materials, as well as create audio-visual content to support departmental initiatives and communications.</p>
+      <p>As the Department Webmaster for Queens College Sociology, I enhance the department's digital presence by developing web pages, showcasing programs, faculty, and resources. I also design graphics, create materials, and produce audio-visual content to support initiatives and communications.</p>
     </div>
   </div>
   
@@ -55,7 +89,7 @@
     <img src="gwc-qc.webp" alt="Girls Who Code Queens College Logo">
     <div>
       <h2>Girls Who Code - College Mentor</h2>
-      <p>As a college mentor, I planned a fall coding event and continue to a spring campus visit for high school clubs, providing students with opportunities to explore coding challenges, college life, and tech careers. I also engage in speed networking events with corporate partners to learn about various career options. Additionally, I am involved in financial literacy initiatives to better plan my future financial goals.</p>
+      <p>As a college mentor, I organize a fall coding event and a spring campus visit for high school clubs, offering students a chance to explore coding, college life, and tech careers. I also participate in speed networking with corporate partners and engage in financial literacy initiatives to plan my future goals.</p>
     </div>
   </div>
 
@@ -63,17 +97,26 @@
     <img src="ubiq.webp" alt="Ubiq Certificate">
     <div>
       <h2>Ubiq Insider Program</h2>
-      <p> I had the exciting opportunity to join the Ubiq Insider Program, where I got firsthand experience with Ubiq — an innovative spatial media platform that turns digital memories into immersive 3D environments. During my time with the program, I had the chance to:</p>
-      <ul>
-        <li>💡Test features like spatial storytelling and provide input on privacy settings</li>
-        <li>💡Work alongside the team to brainstorm UI/UX solutions that improve the app’s overall design and usability</li>
-        <li>💡Learn how emerging technologies are reshaping how we capture and relive memories</li>
+      <p>I joined the Ubiq Insider Program, gaining hands-on experience with Ubiq, a spatial media platform that transforms digital memories into 3D environments. I tested features like spatial storytelling, gave feedback on privacy settings, helped brainstorm UI/UX improvements, and explored how emerging tech is changing the way we relive memories.</p>
       </ul>
     </div>
   </div>
 </div>
 
-  <!--FOOTER-->
-  <div class="footer">
-    <p>© 2025 Faiza Khan. All rights reserved.</p>
+  <!-- FOOTER -->
+<div class="footer">
+  <p>© 2025 Faiza Khan. All rights reserved.</p>
+  <div class="social-icons">
+    <a href="https://www.linkedin.com/in/faizakhan300/" target="_blank">
+      <img src="linkedin-icon.png" alt="LinkedIn" class="footer-icon">
+    </a>
+    <a href="https://github.com/butterflies-fk" target="_blank">
+      <img src="github-icon.png" alt="GitHub" class="footer-icon">
+    </a>
+    <a href="mailto:khanfaiza3000@.com" target="_blank">
+      <img src="gmail-icon.png" alt="Gmail" class="footer-icon">
+    </a>
   </div>
+</div>
+</body>
+</html>
