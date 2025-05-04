@@ -1,0 +1,134 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet'>
+  <link href="https://fonts.googleapis.com/css2?family=Croissant+One&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="certifications.css">
+
+  <link rel="icon" type="image/png" href="test.png">
+
+<title>My Certifications 🏆</title>
+
+<!--HEADER-->
+<div class="header">
+  <h1 id="quote-header"></h1> <!-- Changed id for dynamic content -->
+</div>
+
+<script>
+// Array of motivational quotes
+const quotes = [
+  "Rise above, always.",
+  "Progress over perfection.",
+  "Chase the impossible.",
+  "Strength lies within.",
+  "Trust the process.",
+  "Dream, then do.",
+  "Stay relentless.",
+  "Fear less, live more.",
+  "Make it happen.",
+  "You are the answer."
+];
+
+// Function to change the quote
+function changeQuote() {
+  const quoteHeader = document.getElementById('quote-header');
+  const randomIndex = Math.floor(Math.random() * quotes.length);
+  quoteHeader.textContent = quotes[randomIndex];
+
+  // Add fade-in effect when the quote changes
+  quoteHeader.style.opacity = 0;
+  setTimeout(() => {
+    quoteHeader.style.opacity = 1;
+  }, 100);
+}
+
+// Change quote every 7 seconds (7000 ms)
+setInterval(changeQuote, 7000);
+
+// Initially set a quote
+changeQuote();
+</script>
+
+<!--TOP NAV-->
+<div class="topnav">
+  <a href="index.html">Home</a>
+  <a href="portfolio.html">Portfolio</a>
+  <a class="active" href="certifications.html">Certificates</a>
+</div>
+
+<!--HOME HEADERS-->
+<div class="heading">
+  <h1>✨My Certifications✨</h1>
+</div>
+
+<div class="certifications-container">
+  <div class="certification-item">
+    <img src="hacjnight.png" alt="Certification 1" />
+    <div>
+      <h2>Best Beginner Hack - HackKnight</h2>
+      <p>Prototyped a mobile app to find nearby halal food spots with map integration, real-time pins, and a weekly leaderboard.</p>
+    </div>
+  </div>
+
+  <div class="certification-item">
+    <img src="cssi.png" alt="Certification 2" />
+    <div>
+      <h2>CSSI - Google</h2>
+      <p>Completed a 4-week Google-led CS program, building a collaborative HTML/CSS project and presenting it live to engineers.</p>
+    </div>
+  </div>
+
+  <div class="certification-item">
+    <img src="boss.png" alt="Certification 3" />
+    <div>
+      <h2>Bossgirls - Standard Chartered</h2>
+      <p>Explored entrepreneurship through market research, prototyping, and pitching a sustainable fashion startup with mentorship from industry professionals.</p>
+    </div>
+  </div>
+
+  <div class="certification-item">
+    <img src="web design cert.png" alt="Certification 4" />
+    <div>
+      <h2>Web Design - GWC</h2>
+      <p>Earned a certificate in Web Design for Social Good from Girls Who Code, focusing on creating impact-driven websites using HTML and CSS.</p>
+    </div>
+  </div>
+</div>
+
+
+ <!-- FOOTER -->
+ <div class="footer">
+    <p>© 2025 Faiza Khan. All rights reserved.</p>
+    <div class="social-icons">
+      <a href="https://www.linkedin.com/in/faizakhan300/" target="_blank">
+        <img src="linkedin-icon.png" alt="LinkedIn" class="footer-icon">
+      </a>
+      <a href="https://github.com/butterflies-fk" target="_blank">
+        <img src="github-icon.png" alt="GitHub" class="footer-icon">
+      </a>
+      <a href="mailto:khanfaiza3000@.com" target="_blank">
+        <img src="gmail-icon.png" alt="Gmail" class="footer-icon">
+      </a>
+    </div>
+  </div>
+  
+  <!-- Scroll Animation Script -->
+  <script>
+    const items = document.querySelectorAll('.certification-item');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    });
+    items.forEach(item => observer.observe(item));
+  </script>
+
+</body>
+</html>
