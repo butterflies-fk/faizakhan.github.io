@@ -6,25 +6,57 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet'>
   <link href="https://fonts.googleapis.com/css2?family=Croissant+One&display=swap" rel="stylesheet">
-
   <link rel="icon" type="image/png" href="test.png">
-
   <link rel="stylesheet" href="home.css">
-
-<title>About Me 🌸</title>
+  <title>About Me 🌸</title>
+</head>
+<body>
 
 <!--HEADER-->
 <div class="header">
-  <h1>"Unstoppable Starts With Confidence"</h1>
+  <h1 id="quote-header"></h1> <!-- Changed id for dynamic content -->
 </div>
 
-</html>
+<script>
+// Array of motivational quotes
+const quotes = [
+  "Rise above, always.",
+  "Progress over perfection.",
+  "Chase the impossible.",
+  "Strength lies within.",
+  "Trust the process.",
+  "Dream, then do.",
+  "Stay relentless.",
+  "Fear less, live more.",
+  "Make it happen.",
+  "You are the answer."
+];
+
+// Function to change the quote
+function changeQuote() {
+  const quoteHeader = document.getElementById('quote-header');
+  const randomIndex = Math.floor(Math.random() * quotes.length);
+  quoteHeader.textContent = quotes[randomIndex];
+
+  // Add fade-in effect when the quote changes
+  quoteHeader.style.opacity = 0;
+  setTimeout(() => {
+    quoteHeader.style.opacity = 1;
+  }, 100);
+}
+
+// Change quote every 7 seconds (7000 ms)
+setInterval(changeQuote, 7000);
+
+// Initially set a quote
+changeQuote();
+</script>
 
 <!--TOP NAV-->
 <div class="topnav">
   <a class="active" href="index.html">Home</a>
   <a href="portfolio.html">Portfolio</a>
-  <a href="links.html">Quick Links</a>
+  <a href="certifications.html">Certificates</a>
 </div>
 
 <!--HOME HEADERS-->
@@ -32,25 +64,63 @@
   <h1>✨A Little About Me✨</h1>
 </div>
 
-  <!--HOME HEADERS-->
-  <div class="title">
-  <h3>Queens College Sociology Department Webmaster | Best Beginner Hack Winner @HackKnight | GWC College Mentor</h3>
+<div class="title">
+  <h3>QC Sociology Department Webmaster | GWC College Mentor | Best Beginner Hack Winner @HackKnight </h3>
 </div>
 
 <!--HOME IMAGE & CONTENT-->
-<body>
-  <div class="container">
-    <img src="faiza image.webp" alt="Side profile of Faiza Khan">
-    <div class="text">
-          <p>Hi, my name is Faiza Khan, and I’m an aspiring UI/UX Designer driven by a passion for creating intuitive and user-friendly experiences. Over the years, I’ve gained valuable hands-on experience in business and web applications, refining my skills in design and usability. My curiosity for emerging web technologies fuels my dedication to continuous learning and professional growth. As a self-starter and quick learner, I thrive in fast-paced environments, bringing strong presentation skills and the ability to communicate complex ideas effectively. I excel at problem-solving and collaboration, always striving to create meaningful solutions.</p>
-          <br>
-          <p>Currently, I serve as a GWC College Mentor, actively developing my leadership skills. I’m also honored to be part of the Sociology Department Webmaster team, where I contribute to enhancing the website’s usability and accessibility. I’m excited about future opportunities for growth, innovation, and collaboration, and I look forward to connecting with like-minded professionals to explore new possibilities in the field of UI/UX design.</p>
+<div class="container">
+  <img src="faiza.png" alt="Side profile of Faiza Khan">
+  <div class="text">
+    <p>Hi, I’m Faiza Khan, an aspiring UI/UX Designer passionate about creating intuitive and user-friendly experiences. With hands-on experience in business and web applications, I’ve developed my design and usability skills. I’m a quick learner who thrives in fast-paced environments, bringing strong problem-solving, collaboration, and presentation skills to every project.</p>
   </div>
-</body>
+</div>
 
-<!--FOOTER-->
+<!-- CARDS -->
+<div class="card-wrapper">
+  <div class="card">
+    <img src="give.png" alt="giving mentorship">
+    <div class="card-container">
+      <h4><b>GWC College Mentor</b></h4>
+      <p>As a college mentor, I organize coding events, support campus visits for high school clubs, network with corporate partners, and engage in financial literacy initiatives.</p>
+    </div>
+  </div>
+  
+  <div class="card">
+    <img src="freelance.png" alt="freelancer">
+    <div class="card-container">
+      <h4><b>Freelancer</b></h4>
+      <p>As a freelance UI/UX designer, I create intuitive, user-centered designs that enhance digital experiences and drive user engagement.</p>
+    </div>
+  </div>
+
+  
+  <div class="card">
+    <img src="webmaster_1.png" alt="wireframe design">
+    <div class="card-container">
+      <h4><b>QC Sociology Department Webmaster</b></h4>
+      <p>As the Department Webmaster for Queens College Sociology, I enhance the digital presence by developing web pages, designing graphics, and creating content to support departmental initiatives.</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- FOOTER -->
 <div class="footer">
   <p>© 2025 Faiza Khan. All rights reserved.</p>
+  <div class="social-icons">
+    <a href="https://www.linkedin.com/in/faizakhan300/" target="_blank">
+      <img src="linkedin-icon.png" alt="LinkedIn" class="footer-icon">
+    </a>
+    <a href="https://github.com/butterflies-fk" target="_blank">
+      <img src="github-icon.png" alt="GitHub" class="footer-icon">
+    </a>
+    <a href="mailto:khanfaiza3000@.com" target="_blank">
+      <img src="gmail-icon.png" alt="Gmail" class="footer-icon">
+    </a>
+  </div>
 </div>
+</body>
+</html>
 
 
