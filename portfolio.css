@@ -12,13 +12,15 @@ body {
   background-image: url('orange\ and\ pink.jpg');
   background-size: cover; /* Makes the image cover the entire header */
   background-position: center; /* Centers the image */
-  height: 100px; 
+  height: 100px; /* Adjust the height of your header as needed */
   padding: 60px;
   text-align: center;
   font-size: 20px;
 }
 
   /*TOP NAV*/
+
+/* Add a black background color to the top navigation */
 .topnav {
   background-color: white;
   overflow: hidden;
@@ -51,9 +53,9 @@ body {
 /* HOME PAGE HEADERS */
 .heading h1 {
   font-family: 'Croissant One', cursive;
-  font-size: 32px; 
-  font-weight: normal; 
-  color: #e76e70; 
+  font-size: 32px; /* Adjust size if needed */
+  font-weight: normal; /* Adjust weight if needed */
+  color: #e76e70; /* Adjust color if needed */
   text-align: center;
 }
 
@@ -80,7 +82,7 @@ body {
   border-radius: 15px;
   box-shadow: 0px 0px 20px #ffcbcc;
   transition: box-shadow 0.3s ease-in-out;
-  max-width: 800px; 
+  max-width: 800px; /* Adjust for better centering */
 }
 
 .portfolio-item:hover {
@@ -105,7 +107,7 @@ body {
 @media (min-width: 768px) {
   .portfolio-item {
     flex-direction: row;
-    align-items: center; 
+    align-items: center; /* Aligns items better */
     justify-content: center;
   }
   
@@ -118,15 +120,31 @@ body {
   }
 }
 
-
-
-/*FOOTER*/
+/* FOOTER */
 .footer {
-  position: fixed;
-  left: 0px;
-  bottom: 0px;
-  width: 100%;
   background-color: #ffcbcc;
   color: black;
   text-align: center;
+  padding: 20px 0;
+  position: relative; /* Enables positioning of child elements like .social-icons */
+}
+
+/* Social Icons Container */
+.social-icons {
+  position: absolute;
+  bottom: 10px;
+  left: 20px;
+  display: flex;
+  gap: 20px;
+}
+
+/* Footer Icons */
+.footer-icon {
+  width: 30px;
+  height: auto;
+  transition: transform 0.3s ease-in-out;
+}
+
+.footer-icon:hover {
+  transform: scale(1.2);
 }
