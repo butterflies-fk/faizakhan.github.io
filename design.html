@@ -11,97 +11,56 @@
 
   <link rel="icon" type="image/png" href="test.png">
 
-<title>My Certifications 🏆</title>
+  <title>My Designs 🎨</title>
+</head>
 
-<!--HEADER-->
-<div class="header">
-  <h1 id="quote-header"></h1> <!-- Changed id for dynamic content -->
-</div>
+<body>
+  <!--HEADER-->
+  <div class="header">
+    <h1 id="quote-header"></h1>
+  </div>
 
-<script>
-// Array of motivational quotes
-const quotes = [
-  "Rise above, always.",
-  "Progress over perfection.",
-  "Chase the impossible.",
-  "Strength lies within.",
-  "Trust the process.",
-  "Dream, then do.",
-  "Stay relentless.",
-  "Fear less, live more.",
-  "Make it happen.",
-  "You are the answer."
-];
+  <!--TOP NAV-->
+  <div class="topnav">
+    <a href="index.html">Home</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="certifications.html">Certificates</a>
+    <a class="active" href="design.html">Designs</a>
+  </div>
 
-// Function to change the quote
-function changeQuote() {
-  const quoteHeader = document.getElementById('quote-header');
-  const randomIndex = Math.floor(Math.random() * quotes.length);
-  quoteHeader.textContent = quotes[randomIndex];
+  <!--HOME HEADERS-->
+  <div class="heading">
+    <h1>✨My Designs✨</h1>
+  </div>
 
-  // Add fade-in effect when the quote changes
-  quoteHeader.style.opacity = 0;
-  setTimeout(() => {
-    quoteHeader.style.opacity = 1;
-  }, 100);
-}
-
-// Change quote every 7 seconds (7000 ms)
-setInterval(changeQuote, 7000);
-
-// Initially set a quote
-changeQuote();
-</script>
-
-<!--TOP NAV-->
-<div class="topnav">
-  <a href="index.html">Home</a>
-  <a href="portfolio.html">Portfolio</a>
-  <a href="certifications.html">Certificates</a>
-   <a class="active" href="design.html">Designs</a>
-</div>
-<!--HOME HEADERS-->
-<div class="heading">
-  <h1>✨My Designs✨</h1>
-</div>
-
-<div class="design-container">
-  <div class="design-item">
-    <img src="HalalBytes - Welcome-watermarked.png" alt="Figma Welcome Page" />
-    <div>
+  <div class="design-container">
+    <div class="design-item">
+      <img src="HalalBytes - Welcome-watermarked.png" alt="HalalBytes Welcome Screen" />
       <h2>HalalBytes - Welcome Page</h2>
       <p>Welcome screen introducing HalalBytes with clear branding and call-to-action. Designed for immediate user engagement with a clean, minimalist aesthetic using the app's signature coral color palette.</p>
     </div>
-  </div>
 
-  <div class="design-item">
-    <img src="HalalBytes - Map-watermarked.png" alt="Figma Map Page" />
-    <div>
-      <h2>CSSI - Google</h2>
+    <div class="design-item">
+      <img src="HalalBytes - Map-watermarked.png" alt="HalalBytes Map View" />
+      <h2>HalalBytes - Map View</h2>
       <p>Location-based search interface designed for Google Maps API integration. Features pin markers for halal restaurants, allowing users to discover dining options based on proximity and explore their local area.</p>
     </div>
-  </div>
 
-  <div class="design-item">
-    <img src="HalalBytes - Home Page-watermarked.png" alt="Figma Home Page" />
-    <div>
-      <h2>Bossgirls - Standard Chartered</h2>
+    <div class="design-item">
+      <img src="HalalBytes - Home Page-watermarked.png" alt="HalalBytes Home Page" />
+      <h2>HalalBytes - Home Page</h2>
       <p>Main discovery screen featuring card-based UI for browsing halal restaurants. Designed with visual hierarchy to highlight restaurant images, ratings, distance, and quick actions. Includes filtering and search functionality for seamless navigation.</p>
     </div>
-  </div>
 
-  <div class="design-item">
-    <img src="HalalBytes - Leaderboard-watermarked.png" alt="Figma Leaderboard Page" />
-    <div>
-      <h2>Web Design - GWC</h2>
+    <div class="design-item">
+      <img src="HalalBytes - Leaderboard-watermarked.png" alt="HalalBytes Leaderboard" />
+      <h2>HalalBytes - Leaderboard</h2>
       <p>Gamified leaderboard feature encouraging user engagement through weekly challenges. Designed to build community and incentivize restaurant reviews and check-ins with a competitive yet friendly interface.</p>
     </div>
   </div>
-</div>
 
-
- <!-- FOOTER -->
- <div class="footer">
+  <!-- FOOTER -->
+  <div class="footer">
     <p>© 2025 Faiza Khan. All rights reserved.</p>
     <div class="social-icons">
       <a href="https://www.linkedin.com/in/faizakhan300/" target="_blank">
@@ -110,23 +69,62 @@ changeQuote();
       <a href="https://github.com/butterflies-fk" target="_blank">
         <img src="github-icon.png" alt="GitHub" class="footer-icon">
       </a>
-      <a href="mailto:khanfaiza3000@gmail.com.com" target="_blank">
+      <a href="mailto:khanfaiza3000@gmail.com">
         <img src="gmail-icon.png" alt="Gmail" class="footer-icon">
       </a>
     </div>
   </div>
   
-  <!-- Scroll Animation Script -->
+  <!-- Quote Rotation Script -->
   <script>
-    const items = document.querySelectorAll('.certification-item');
+    // Array of motivational quotes
+    const quotes = [
+      "Rise above, always.",
+      "Progress over perfection.",
+      "Chase the impossible.",
+      "Strength lies within.",
+      "Trust the process.",
+      "Dream, then do.",
+      "Stay relentless.",
+      "Fear less, live more.",
+      "Make it happen.",
+      "You are the answer."
+    ];
+
+    // Function to change the quote
+    function changeQuote() {
+      const quoteHeader = document.getElementById('quote-header');
+      const randomIndex = Math.floor(Math.random() * quotes.length);
+      quoteHeader.textContent = quotes[randomIndex];
+
+      // Add fade-in effect when the quote changes
+      quoteHeader.style.opacity = 0;
+      setTimeout(() => {
+        quoteHeader.style.opacity = 1;
+      }, 100);
+    }
+
+    // Change quote every 7 seconds
+    setInterval(changeQuote, 7000);
+
+    // Initially set a quote
+    changeQuote();
+  </script>
+
+  <!-- Scroll Animation Script - FIXED CLASS NAME -->
+  <script>
+    const items = document.querySelectorAll('.design-item');
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
         }
       });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
     });
+    
     items.forEach(item => observer.observe(item));
   </script>
 
