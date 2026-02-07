@@ -82,14 +82,20 @@ body {
   padding: 30px 25px;
   border-radius: 15px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out, box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   min-height: 400px;
+  opacity: 1; /* Changed from 0 to 1 - cards visible by default */
+  transform: translateY(0); /* Changed from 30px to 0 */
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out, box-shadow 0.3s ease;
+}
+
+/* Animation class - only used if JavaScript is working */
+.design-item:not(.visible) {
+  opacity: 0;
+  transform: translateY(30px);
 }
 
 .design-item.visible {
@@ -222,3 +228,5 @@ body {
     font-size: 15px;
   }
 }
+
+
