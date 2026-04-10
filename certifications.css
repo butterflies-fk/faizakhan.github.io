@@ -58,8 +58,7 @@ body {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 30px;
-  max-width: 1500px;
-  margin: 50px auto;
+  margin: 50px 80px;
 }
 
 .certification-item {
