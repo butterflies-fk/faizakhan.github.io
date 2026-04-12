@@ -6,20 +6,110 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet'>
   <link href="https://fonts.googleapis.com/css2?family=Croissant+One&display=swap" rel="stylesheet">
-
+ 
   <link rel="stylesheet" href="portfolio.css">
-
+ 
   <link rel="icon" type="image/png" href="test.png">
-
-<title>My Portfolio 👩‍💻</title>
-
+ 
+  <title>My Portfolio 👩‍💻</title>
+ 
+  <!-- ========== DARK/LIGHT MODE STYLES ========== -->
+  <style>
+    .topnav {
+      position: relative;
+    }
+    .theme-toggle {
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: 100%;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 20px;
+      padding: 0 22px;
+      line-height: 1;
+    }
+    .theme-toggle:hover {
+      background-color: #fff3f0;
+    }
+ 
+    body.dark-mode {
+      background-color: #1a1a1a !important;
+      color: #e8e8e8 !important;
+    }
+    body.dark-mode .topnav {
+      background-color: #2a2a2a !important;
+      border-bottom: 1px solid #3a3a3a;
+    }
+    body.dark-mode .topnav a {
+      color: #e8e8e8 !important;
+    }
+    body.dark-mode .topnav a:hover,
+    body.dark-mode .topnav a.active {
+      background-color: #fff3f0 !important;
+      color: #000000 !important;
+    }
+    body.dark-mode .theme-toggle:hover {
+      background-color: #fff3f0 !important;
+    }
+ 
+    .header h1,
+    body.dark-mode .header h1 {
+      color: #000000 !important;
+    }
+ 
+    body.dark-mode .heading h1 {
+      color: #f4a0a2 !important;
+    }
+    body.dark-mode .content-container,
+    body.dark-mode .portfolio-item {
+      background-color: #1a1a1a !important;
+    }
+    body.dark-mode .portfolio-item h2 {
+      color: #f4a0a2 !important;
+    }
+    body.dark-mode .portfolio-item p {
+      color: #cccccc !important;
+    }
+    body.dark-mode .portfolio-item a {
+      color: #f4a0a2 !important;
+    }
+    body.dark-mode .footer {
+      background-color: #2a2a2a !important;
+      border-top: 1px solid #3a3a3a;
+    }
+    body.dark-mode .footer p {
+      color: #aaaaaa !important;
+    }
+    body.dark-mode .footer-icon {
+      filter: brightness(0) invert(1);
+    }
+ 
+    body, .topnav, .topnav a, .footer, .portfolio-item, .heading h1 {
+      transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    }
+  </style>
+  <!-- ============================================ -->
+</head>
+<body>
+ 
 <!--HEADER-->
 <div class="header">
-  <h1 id="quote-header"></h1> <!-- Changed id for dynamic content -->
+  <h1 id="quote-header"></h1>
 </div>
-
+ 
+<!--TOP NAV-->
+<div class="topnav">
+  <a href="index.html">Home</a>
+  <a class="active" href="portfolio.html">Portfolio</a>
+  <a href="certifications.html">Certificates</a>
+  <a href="design.html">Designs</a>
+  <button class="theme-toggle" id="themeToggle" title="Toggle dark/light mode">🌙</button>
+</div>
+ 
 <script>
-// Array of motivational quotes
+// ---- Quote rotator ----
 const quotes = [
   "Rise above, always.",
   "Progress over perfection.",
@@ -32,41 +122,37 @@ const quotes = [
   "Make it happen.",
   "You are the answer."
 ];
-
-// Function to change the quote
+ 
 function changeQuote() {
   const quoteHeader = document.getElementById('quote-header');
   const randomIndex = Math.floor(Math.random() * quotes.length);
   quoteHeader.textContent = quotes[randomIndex];
-
-  // Add fade-in effect when the quote changes
   quoteHeader.style.opacity = 0;
-  setTimeout(() => {
-    quoteHeader.style.opacity = 1;
-  }, 100);
+  setTimeout(() => { quoteHeader.style.opacity = 1; }, 100);
 }
-
-// Change quote every 7 seconds (7000 ms)
 setInterval(changeQuote, 7000);
-
-// Initially set a quote
 changeQuote();
+ 
+// ---- Dark / Light mode ----
+const toggle = document.getElementById('themeToggle');
+ 
+if (localStorage.getItem('theme') === 'dark') {
+  document.body.classList.add('dark-mode');
+  toggle.textContent = '☀️';
+}
+ 
+toggle.addEventListener('click', () => {
+  const isDark = document.body.classList.toggle('dark-mode');
+  toggle.textContent = isDark ? '☀️' : '🌙';
+  localStorage.setItem('theme', isDark ? 'dark' : 'light');
+});
 </script>
-
-<!--TOP NAV-->
-<div class="topnav">
-  <a href="index.html">Home</a>
-  <a class="active" href="portfolio.html">Portfolio</a>
-  <a href="certifications.html">Certificates</a>
-   <a href="design.html">Designs</a>
-</div>
-
+ 
 <!--HOME HEADERS-->
 <div class="heading">
   <h1>✨My Portfolio✨</h1>
 </div>
-
-
+ 
 <!--EXPERIENCE-->
 <div class="content-container">
   <div class="portfolio-item">
@@ -74,7 +160,6 @@ changeQuote();
     <div>
       <h2>HalalBytes</h2>
       <p>HalalBytes is a project from my first hackathon, where my team won Best Beginner Hack. We faced challenges with API calls and integrating Firebase Real-Time Database, but our persistence and teamwork led us to the prototyping stage. It was also my first time using Figma, which was crucial for visualizing and iterating on our designs. The experience deepened my appreciation for both development and design. Check out the project on <a href="https://devpost.com/software/halal-bytes" target="_blank">Devpost</a>.</p>
-
     </div>
   </div>
   
@@ -93,18 +178,17 @@ changeQuote();
       <p>As a college mentor, I organize a fall coding event and a spring campus visit for high school clubs, offering students a chance to explore coding, college life, and tech careers. I also participate in speed networking with corporate partners and engage in financial literacy initiatives to plan my future goals.</p>
     </div>
   </div>
-
+ 
   <div class="portfolio-item">
     <img src="ubiq.webp" alt="Ubiq Certificate">
     <div>
       <h2>Ubiq Insider Program</h2>
       <p>I joined the Ubiq Insider Program, gaining hands-on experience with Ubiq, a spatial media platform that transforms digital memories into 3D environments. I tested features like spatial storytelling, gave feedback on privacy settings, helped brainstorm UI/UX improvements, and explored how emerging tech is changing the way we relive memories.</p>
-      </ul>
     </div>
   </div>
 </div>
-
-  <!-- FOOTER -->
+ 
+<!-- FOOTER -->
 <div class="footer">
   <p>© 2025 Faiza Khan. All rights reserved.</p>
   <div class="social-icons">
@@ -119,5 +203,6 @@ changeQuote();
     </a>
   </div>
 </div>
+ 
 </body>
 </html>
