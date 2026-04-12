@@ -6,127 +6,208 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet'>
   <link href="https://fonts.googleapis.com/css2?family=Croissant+One&display=swap" rel="stylesheet">
-
+ 
   <link rel="stylesheet" href="design.css">
-
+ 
   <link rel="icon" type="image/png" href="test.png">
-
+ 
   <title>My Designs 🎨</title>
-</head>
-
-<body>
-  <!--HEADER-->
-  <div class="header">
-    <h1 id="quote-header"></h1>
-  </div>
-
-  <!--TOP NAV-->
-  <div class="topnav">
-    <a href="index.html">Home</a>
-    <a href="portfolio.html">Portfolio</a>
-    <a href="certifications.html">Certificates</a>
-    <a class="active" href="design.html">Designs</a>
-  </div>
-
-  <!--HOME HEADERS-->
-  <div class="heading">
-    <h1>✨My Designs✨</h1>
-  </div>
-
-  <div class="design-container">
-    <div class="design-item">
-      <img src="HalalBytes - Welcome-watermarked.png" alt="HalalBytes Welcome Screen" />
-      <h2>HalalBytes - Welcome Page</h2>
-      <p>Welcome screen introducing HalalBytes with clear branding and call-to-action. Designed for immediate user engagement with a clean, minimalist aesthetic using the app's signature coral color palette.</p>
-    </div>
-
-    <div class="design-item">
-      <img src="HalalBytes - Map-watermarked.png" alt="HalalBytes Map View" />
-      <h2>HalalBytes - Map View</h2>
-      <p>Location-based search interface designed for Google Maps API integration. Features pin markers for halal restaurants, allowing users to discover dining options based on proximity and explore their local area.</p>
-    </div>
-
-    <div class="design-item">
-      <img src="HalalBytes - Home Page-watermarked.png" alt="HalalBytes Home Page" />
-      <h2>HalalBytes - Home Page</h2>
-      <p>Main discovery screen featuring card-based UI for browsing halal restaurants. Designed with visual hierarchy to highlight restaurant images, ratings, distance, and quick actions. Includes filtering and search functionality for seamless navigation.</p>
-    </div>
-
-    <div class="design-item">
-      <img src="HalalBytes - Leaderboard-watermarked.png" alt="HalalBytes Leaderboard" />
-      <h2>HalalBytes - Leaderboard</h2>
-      <p>Gamified leaderboard feature encouraging user engagement through weekly challenges. Designed to build community and incentivize restaurant reviews and check-ins with a competitive yet friendly interface.</p>
-    </div>
-  </div>
-
-  <!-- FOOTER -->
-  <div class="footer">
-    <p>© 2025 Faiza Khan. All rights reserved.</p>
-    <div class="social-icons">
-      <a href="https://www.linkedin.com/in/faizakhan300/" target="_blank">
-        <img src="linkedin-icon.png" alt="LinkedIn" class="footer-icon">
-      </a>
-      <a href="https://github.com/butterflies-fk" target="_blank">
-        <img src="github-icon.png" alt="GitHub" class="footer-icon">
-      </a>
-      <a href="mailto:khanfaiza3000@gmail.com">
-        <img src="gmail-icon.png" alt="Gmail" class="footer-icon">
-      </a>
-    </div>
-  </div>
-  
-  <!-- Quote Rotation Script -->
-  <script>
-    // Array of motivational quotes
-    const quotes = [
-      "Rise above, always.",
-      "Progress over perfection.",
-      "Chase the impossible.",
-      "Strength lies within.",
-      "Trust the process.",
-      "Dream, then do.",
-      "Stay relentless.",
-      "Fear less, live more.",
-      "Make it happen.",
-      "You are the answer."
-    ];
-
-    // Function to change the quote
-    function changeQuote() {
-      const quoteHeader = document.getElementById('quote-header');
-      const randomIndex = Math.floor(Math.random() * quotes.length);
-      quoteHeader.textContent = quotes[randomIndex];
-
-      // Add fade-in effect when the quote changes
-      quoteHeader.style.opacity = 0;
-      setTimeout(() => {
-        quoteHeader.style.opacity = 1;
-      }, 100);
+ 
+  <!-- ========== DARK/LIGHT MODE STYLES ========== -->
+  <style>
+    .topnav {
+      position: relative;
     }
-
-    // Change quote every 7 seconds
-    setInterval(changeQuote, 7000);
-
-    // Initially set a quote
-    changeQuote();
-  </script>
-
-  <!-- Scroll Animation Script - FIXED CLASS NAME -->
-  <script>
-    const items = document.querySelectorAll('.design-item');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
+    .theme-toggle {
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: 100%;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 20px;
+      padding: 0 22px;
+      line-height: 1;
+    }
+    .theme-toggle:hover {
+      background-color: #fff3f0;
+    }
+ 
+    body.dark-mode {
+      background-color: #1a1a1a !important;
+      color: #e8e8e8 !important;
+    }
+    body.dark-mode .topnav {
+      background-color: #2a2a2a !important;
+      border-bottom: 1px solid #3a3a3a;
+    }
+    body.dark-mode .topnav a {
+      color: #e8e8e8 !important;
+    }
+    body.dark-mode .topnav a:hover,
+    body.dark-mode .topnav a.active {
+      background-color: #fff3f0 !important;
+      color: #000000 !important;
+    }
+    body.dark-mode .theme-toggle:hover {
+      background-color: #fff3f0 !important;
+    }
+ 
+    .header h1,
+    body.dark-mode .header h1 {
+      color: #000000 !important;
+    }
+ 
+    body.dark-mode .heading h1 {
+      color: #f4a0a2 !important;
+    }
+    body.dark-mode .design-container,
+    body.dark-mode .design-item {
+      background-color: #1a1a1a !important;
+    }
+    body.dark-mode .design-item h2 {
+      color: #f4a0a2 !important;
+    }
+    body.dark-mode .design-item p {
+      color: #cccccc !important;
+    }
+    body.dark-mode .footer {
+      background-color: #2a2a2a !important;
+      border-top: 1px solid #3a3a3a;
+    }
+    body.dark-mode .footer p {
+      color: #aaaaaa !important;
+    }
+    body.dark-mode .footer-icon {
+      filter: brightness(0) invert(1);
+    }
+ 
+    body, .topnav, .topnav a, .footer, .design-item, .heading h1 {
+      transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    }
+  </style>
+  <!-- ============================================ -->
+</head>
+ 
+<body>
+ 
+<!--HEADER-->
+<div class="header">
+  <h1 id="quote-header"></h1>
+</div>
+ 
+<!--TOP NAV-->
+<div class="topnav">
+  <a href="index.html">Home</a>
+  <a href="portfolio.html">Portfolio</a>
+  <a href="certifications.html">Certificates</a>
+  <a class="active" href="design.html">Designs</a>
+  <button class="theme-toggle" id="themeToggle" title="Toggle dark/light mode">🌙</button>
+</div>
+ 
+<script>
+  // ---- Quote rotator ----
+  const quotes = [
+    "Rise above, always.",
+    "Progress over perfection.",
+    "Chase the impossible.",
+    "Strength lies within.",
+    "Trust the process.",
+    "Dream, then do.",
+    "Stay relentless.",
+    "Fear less, live more.",
+    "Make it happen.",
+    "You are the answer."
+  ];
+ 
+  function changeQuote() {
+    const quoteHeader = document.getElementById('quote-header');
+    const randomIndex = Math.floor(Math.random() * quotes.length);
+    quoteHeader.textContent = quotes[randomIndex];
+    quoteHeader.style.opacity = 0;
+    setTimeout(() => { quoteHeader.style.opacity = 1; }, 100);
+  }
+  setInterval(changeQuote, 7000);
+  changeQuote();
+ 
+  // ---- Dark / Light mode ----
+  const toggle = document.getElementById('themeToggle');
+ 
+  if (localStorage.getItem('theme') === 'dark') {
+    document.body.classList.add('dark-mode');
+    toggle.textContent = '☀️';
+  }
+ 
+  toggle.addEventListener('click', () => {
+    const isDark = document.body.classList.toggle('dark-mode');
+    toggle.textContent = isDark ? '☀️' : '🌙';
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  });
+</script>
+ 
+<!--HOME HEADERS-->
+<div class="heading">
+  <h1>✨My Designs✨</h1>
+</div>
+ 
+<div class="design-container">
+  <div class="design-item">
+    <img src="HalalBytes - Welcome-watermarked.png" alt="HalalBytes Welcome Screen" />
+    <h2>HalalBytes - Welcome Page</h2>
+    <p>Welcome screen introducing HalalBytes with clear branding and call-to-action. Designed for immediate user engagement with a clean, minimalist aesthetic using the app's signature coral color palette.</p>
+  </div>
+ 
+  <div class="design-item">
+    <img src="HalalBytes - Map-watermarked.png" alt="HalalBytes Map View" />
+    <h2>HalalBytes - Map View</h2>
+    <p>Location-based search interface designed for Google Maps API integration. Features pin markers for halal restaurants, allowing users to discover dining options based on proximity and explore their local area.</p>
+  </div>
+ 
+  <div class="design-item">
+    <img src="HalalBytes - Home Page-watermarked.png" alt="HalalBytes Home Page" />
+    <h2>HalalBytes - Home Page</h2>
+    <p>Main discovery screen featuring card-based UI for browsing halal restaurants. Designed with visual hierarchy to highlight restaurant images, ratings, distance, and quick actions. Includes filtering and search functionality for seamless navigation.</p>
+  </div>
+ 
+  <div class="design-item">
+    <img src="HalalBytes - Leaderboard-watermarked.png" alt="HalalBytes Leaderboard" />
+    <h2>HalalBytes - Leaderboard</h2>
+    <p>Gamified leaderboard feature encouraging user engagement through weekly challenges. Designed to build community and incentivize restaurant reviews and check-ins with a competitive yet friendly interface.</p>
+  </div>
+</div>
+ 
+<!-- FOOTER -->
+<div class="footer">
+  <p>© 2025 Faiza Khan. All rights reserved.</p>
+  <div class="social-icons">
+    <a href="https://www.linkedin.com/in/faizakhan300/" target="_blank">
+      <img src="linkedin-icon.png" alt="LinkedIn" class="footer-icon">
+    </a>
+    <a href="https://github.com/butterflies-fk" target="_blank">
+      <img src="github-icon.png" alt="GitHub" class="footer-icon">
+    </a>
+    <a href="mailto:khanfaiza3000@gmail.com">
+      <img src="gmail-icon.png" alt="Gmail" class="footer-icon">
+    </a>
+  </div>
+</div>
+ 
+<!-- Scroll Animation Script -->
+<script>
+  const items = document.querySelectorAll('.design-item');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
     });
-    
-    items.forEach(item => observer.observe(item));
-  </script>
-
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  });
+  items.forEach(item => observer.observe(item));
+</script>
+ 
 </body>
 </html>
