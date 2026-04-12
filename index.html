@@ -15,16 +15,21 @@
  
   <!-- ========== DARK/LIGHT MODE STYLES ========== -->
   <style>
-    /* Toggle button inside nav */
+    /* Position toggle on the right without disturbing centered nav links */
+    .topnav {
+      position: relative;
+    }
     .theme-toggle {
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: 100%;
       background: none;
       border: none;
       cursor: pointer;
       font-size: 20px;
-      padding: 20px 18px;
+      padding: 0 22px;
       line-height: 1;
-      color: #000000;
-      margin-left: auto;
     }
     .theme-toggle:hover {
       background-color: #fff3f0;
@@ -35,7 +40,6 @@
       color: #e8e8e8 !important;
     }
  
-    /* Nav - keep pink hover always */
     body.dark-mode .topnav {
       background-color: #2a2a2a !important;
       border-bottom: 1px solid #3a3a3a;
@@ -58,20 +62,29 @@
       color: #000000 !important;
     }
  
-    /* Page heading */
     body.dark-mode .heading h1 {
       color: #f4a0a2 !important;
     }
  
-    /* Title subtitle */
     body.dark-mode .title h3 {
       color: #cccccc !important;
     }
  
-    /* About me body text - always black */
+    /* About me body text always black */
     .text p,
     body.dark-mode .text p {
       color: #000000 !important;
+    }
+ 
+    /* Container box in dark mode */
+    body.dark-mode .container,
+    body.dark-mode .container .text {
+      background-color: #2a2a2a !important;
+    }
+ 
+    /* Card wrapper */
+    body.dark-mode .card-wrapper {
+      background: #222222 !important;
     }
  
     /* Cards */
@@ -79,11 +92,9 @@
       background-color: #2a2a2a !important;
       border-color: #3a3a3a !important;
     }
-    body.dark-mode .card h4,
     body.dark-mode .card-container h4 {
       color: #f4a0a2 !important;
     }
-    body.dark-mode .card p,
     body.dark-mode .card-container p {
       color: #cccccc !important;
     }
@@ -107,7 +118,7 @@
       filter: brightness(0) invert(1);
     }
  
-    body, .topnav, .topnav a, .footer, .card, .heading h1, .title h3 {
+    body, .topnav, .topnav a, .footer, .card, .card-wrapper, .heading h1, .title h3, .container {
       transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
     }
   </style>
@@ -121,6 +132,16 @@
   <h1 id="quote-header"></h1>
 </div>
  
+<!-- NAVBAR -->
+<div class="topnav">
+  <a class="active" href="index.html">Home</a>
+  <a href="portfolio.html">Portfolio</a>
+  <a href="certifications.html">Certificates</a>
+  <a href="design.html">Designs</a>
+  <button class="theme-toggle" id="themeToggle" title="Toggle dark/light mode">🌙</button>
+</div>
+ 
+<!-- ALL SCRIPTS AFTER THE NAVBAR SO THE BUTTON EXISTS IN THE DOM -->
 <script>
 // ---- Quote rotator ----
 const quotes = [
@@ -160,15 +181,6 @@ toggle.addEventListener('click', () => {
   localStorage.setItem('theme', isDark ? 'dark' : 'light');
 });
 </script>
- 
-<!-- NAVBAR -->
-<div class="topnav">
-  <a class="active" href="index.html">Home</a>
-  <a href="portfolio.html">Portfolio</a>
-  <a href="certifications.html">Certificates</a>
-  <a href="design.html">Designs</a>
-  <button class="theme-toggle" id="themeToggle" title="Toggle dark/light mode">🌙</button>
-</div>
  
 <!-- CONTENT -->
 <div class="heading">
@@ -239,5 +251,4 @@ toggle.addEventListener('click', () => {
 </body>
 </html>
  
-
 
