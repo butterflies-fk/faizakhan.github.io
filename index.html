@@ -15,28 +15,27 @@
  
   <!-- ========== DARK/LIGHT MODE STYLES ========== -->
   <style>
+    /* Toggle button inside nav */
     .theme-toggle {
-      position: fixed;
-      top: 14px;
-      right: 18px;
-      z-index: 9999;
       background: none;
       border: none;
       cursor: pointer;
-      font-size: 22px;
-      padding: 6px 8px;
-      border-radius: 50%;
-      transition: background 0.2s;
+      font-size: 20px;
+      padding: 20px 18px;
       line-height: 1;
+      color: #000000;
+      margin-left: auto;
     }
     .theme-toggle:hover {
-      background-color: rgba(128,128,128,0.15);
+      background-color: #fff3f0;
     }
  
     body.dark-mode {
       background-color: #1a1a1a !important;
       color: #e8e8e8 !important;
     }
+ 
+    /* Nav - keep pink hover always */
     body.dark-mode .topnav {
       background-color: #2a2a2a !important;
       border-bottom: 1px solid #3a3a3a;
@@ -46,19 +45,36 @@
     }
     body.dark-mode .topnav a:hover,
     body.dark-mode .topnav a.active {
-      background-color: #3a3a3a !important;
-      color: #e8e8e8 !important;
+      background-color: #fff3f0 !important;
+      color: #000000 !important;
     }
+    body.dark-mode .theme-toggle:hover {
+      background-color: #fff3f0 !important;
+    }
+ 
+    /* Header text always black */
+    .header h1,
+    body.dark-mode .header h1 {
+      color: #000000 !important;
+    }
+ 
+    /* Page heading */
     body.dark-mode .heading h1 {
       color: #f4a0a2 !important;
     }
+ 
+    /* Title subtitle */
     body.dark-mode .title h3 {
       color: #cccccc !important;
     }
-    body.dark-mode .container,
+ 
+    /* About me body text - always black */
+    .text p,
     body.dark-mode .text p {
-      color: #cccccc !important;
+      color: #000000 !important;
     }
+ 
+    /* Cards */
     body.dark-mode .card {
       background-color: #2a2a2a !important;
       border-color: #3a3a3a !important;
@@ -71,12 +87,24 @@
     body.dark-mode .card-container p {
       color: #cccccc !important;
     }
+ 
+    /* Card images → white silhouette in dark mode */
+    body.dark-mode .card img {
+      filter: brightness(0) invert(1);
+    }
+ 
+    /* Footer */
     body.dark-mode .footer {
       background-color: #2a2a2a !important;
       border-top: 1px solid #3a3a3a;
     }
     body.dark-mode .footer p {
       color: #aaaaaa !important;
+    }
+ 
+    /* Footer social icons → white in dark mode */
+    body.dark-mode .footer-icon {
+      filter: brightness(0) invert(1);
     }
  
     body, .topnav, .topnav a, .footer, .card, .heading h1, .title h3 {
@@ -87,10 +115,6 @@
 </head>
  
 <body>
- 
-<!-- ========== DARK/LIGHT TOGGLE BUTTON ========== -->
-<button class="theme-toggle" id="themeToggle" title="Toggle dark/light mode">🌙</button>
-<!-- ================================================ -->
  
 <!-- HEADER -->
 <div class="header">
@@ -143,6 +167,7 @@ toggle.addEventListener('click', () => {
   <a href="portfolio.html">Portfolio</a>
   <a href="certifications.html">Certificates</a>
   <a href="design.html">Designs</a>
+  <button class="theme-toggle" id="themeToggle" title="Toggle dark/light mode">🌙</button>
 </div>
  
 <!-- CONTENT -->
@@ -213,5 +238,6 @@ toggle.addEventListener('click', () => {
  
 </body>
 </html>
+ 
 
 
