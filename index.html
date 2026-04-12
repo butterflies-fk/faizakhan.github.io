@@ -1,24 +1,27 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet'>
   <link href="https://fonts.googleapis.com/css2?family=Croissant+One&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="test.png">
+
   <link rel="stylesheet" href="home.css">
+
   <title>About Me 🌸</title>
 </head>
+
 <body>
 
-<!--HEADER-->
+<!-- HEADER -->
 <div class="header">
-  <h1 id="quote-header"></h1> <!-- Changed id for dynamic content -->
+  <h1 id="quote-header"></h1>
 </div>
 
 <script>
-// Array of motivational quotes
 const quotes = [
   "Rise above, always.",
   "Progress over perfection.",
@@ -32,53 +35,79 @@ const quotes = [
   "You are the answer."
 ];
 
-// Function to change the quote
 function changeQuote() {
   const quoteHeader = document.getElementById('quote-header');
   const randomIndex = Math.floor(Math.random() * quotes.length);
   quoteHeader.textContent = quotes[randomIndex];
 
-  // Add fade-in effect when the quote changes
   quoteHeader.style.opacity = 0;
   setTimeout(() => {
     quoteHeader.style.opacity = 1;
   }, 100);
 }
 
-// Change quote every 7 seconds (7000 ms)
 setInterval(changeQuote, 7000);
-
-// Initially set a quote
 changeQuote();
 </script>
 
-<!--TOP NAV-->
+<!-- NAVBAR -->
 <div class="topnav">
   <a class="active" href="index.html">Home</a>
   <a href="portfolio.html">Portfolio</a>
   <a href="certifications.html">Certificates</a>
-   <a href="design.html">Designs</a>
+  <a href="design.html">Designs</a>
+
+  <!-- THEME TOGGLE -->
+  <label class="theme-switch">
+    <input type="checkbox" id="theme-toggle">
+    <span class="slider"></span>
+  </label>
 </div>
 
-<!--HOME HEADERS-->
+<script>
+const toggle = document.getElementById("theme-toggle");
+
+// load saved theme
+if (localStorage.getItem("theme") === "dark") {
+  document.body.classList.add("dark-mode");
+  toggle.checked = true;
+}
+
+// toggle theme
+toggle.addEventListener("change", () => {
+  if (toggle.checked) {
+    document.body.classList.add("dark-mode");
+    localStorage.setItem("theme", "dark");
+  } else {
+    document.body.classList.remove("dark-mode");
+    localStorage.setItem("theme", "light");
+  }
+});
+</script>
+
+<!-- CONTENT -->
 <div class="heading">
   <h1>✨A Little About Me✨</h1>
 </div>
 
 <div class="title">
-  <h3>QC Sociology Department Webmaster | GWC College Mentor | Best Beginner Hack Winner @HackKnight </h3>
+  <h3>QC Sociology Department Webmaster | GWC College Mentor | Best Beginner Hack Winner @HackKnight</h3>
 </div>
 
-<!--HOME IMAGE & CONTENT-->
 <div class="container">
   <img src="faiza new.png" alt="Side profile of Faiza Khan">
   <div class="text">
-    <p>Hi, I’m Faiza Khan, an aspiring UI/UX Designer passionate about creating intuitive and user-friendly experiences. With hands-on experience in business and web applications, I’ve developed my design and usability skills. I’m a quick learner who thrives in fast-paced environments, bringing strong problem-solving, collaboration, and presentation skills to every project.</p>
+    <p>
+      Hi, I’m Faiza Khan, an aspiring UI/UX Designer passionate about creating intuitive and user-friendly experiences.
+      With hands-on experience in business and web applications, I’ve developed my design and usability skills.
+      I’m a quick learner who thrives in fast-paced environments, bringing strong problem-solving, collaboration, and presentation skills to every project.
+    </p>
   </div>
 </div>
 
 <!-- CARDS -->
 <div class="card-wrapper">
+
   <div class="card">
     <img src="give.png" alt="giving mentorship">
     <div class="card-container">
@@ -86,7 +115,7 @@ changeQuote();
       <p>As a college mentor, I organize coding events, support campus visits for high school clubs, network with corporate partners, and engage in financial literacy initiatives.</p>
     </div>
   </div>
-  
+
   <div class="card">
     <img src="freelance.png" alt="freelancer">
     <div class="card-container">
@@ -95,7 +124,6 @@ changeQuote();
     </div>
   </div>
 
-  
   <div class="card">
     <img src="webmaster_1.png" alt="wireframe design">
     <div class="card-container">
@@ -103,24 +131,26 @@ changeQuote();
       <p>As the Department Webmaster for Queens College Sociology, I enhance the digital presence by developing web pages, designing graphics, and creating content to support departmental initiatives.</p>
     </div>
   </div>
-</div>
 
+</div>
 
 <!-- FOOTER -->
 <div class="footer">
   <p>© 2025 Faiza Khan. All rights reserved.</p>
+
   <div class="social-icons">
     <a href="https://www.linkedin.com/in/faizakhan300/" target="_blank">
-      <img src="linkedin-icon.png" alt="LinkedIn" class="footer-icon">
+      <img src="linkedin-icon.png" class="footer-icon">
     </a>
     <a href="https://github.com/butterflies-fk" target="_blank">
-      <img src="github-icon.png" alt="GitHub" class="footer-icon">
+      <img src="github-icon.png" class="footer-icon">
     </a>
     <a href="mailto:khanfaiza3000@gmail.com" target="_blank">
-      <img src="gmail-icon.png" alt="Gmail" class="footer-icon">
+      <img src="gmail-icon.png" class="footer-icon">
     </a>
   </div>
 </div>
+
 </body>
 </html>
 
