@@ -15,7 +15,6 @@
  
   <!-- ========== DARK/LIGHT MODE STYLES ========== -->
   <style>
-    /* Position toggle on the right without disturbing centered nav links */
     .topnav {
       position: relative;
     }
@@ -56,7 +55,6 @@
       background-color: #fff3f0 !important;
     }
  
-    /* Header text always black */
     .header h1,
     body.dark-mode .header h1 {
       color: #000000 !important;
@@ -70,24 +68,20 @@
       color: #cccccc !important;
     }
  
-    /* About me body text always black */
     .text p,
     body.dark-mode .text p {
       color: #000000 !important;
     }
  
-    /* Container box in dark mode */
     body.dark-mode .container,
     body.dark-mode .container .text {
       background-color: #2a2a2a !important;
     }
  
-    /* Card wrapper */
     body.dark-mode .card-wrapper {
       background: #222222 !important;
     }
  
-    /* Cards */
     body.dark-mode .card {
       background-color: #2a2a2a !important;
       border-color: #3a3a3a !important;
@@ -99,12 +93,16 @@
       color: #cccccc !important;
     }
  
-    /* Card images → white silhouette in dark mode */
+    /* All card images → white silhouette in dark mode */
     body.dark-mode .card img {
       filter: brightness(0) invert(1);
     }
  
-    /* Footer */
+    /* laptop.png → brighten and boost contrast to keep the green */
+    body.dark-mode .card img[src="laptop.png"] {
+      filter: brightness(1.8) saturate(1.2);
+    }
+ 
     body.dark-mode .footer {
       background-color: #2a2a2a !important;
       border-top: 1px solid #3a3a3a;
@@ -113,7 +111,6 @@
       color: #aaaaaa !important;
     }
  
-    /* Footer social icons → white in dark mode */
     body.dark-mode .footer-icon {
       filter: brightness(0) invert(1);
     }
@@ -141,7 +138,6 @@
   <button class="theme-toggle" id="themeToggle" title="Toggle dark/light mode">🌙</button>
 </div>
  
-<!-- ALL SCRIPTS AFTER THE NAVBAR SO THE BUTTON EXISTS IN THE DOM -->
 <script>
 // ---- Quote rotator ----
 const quotes = [
