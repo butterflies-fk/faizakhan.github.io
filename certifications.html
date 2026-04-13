@@ -254,19 +254,3 @@ toggle.addEventListener('change', () => {
   </div>
 </div>
  
-<!-- Scroll Animation Script -->
-<script>
-  const items = document.querySelectorAll('.certification-item');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  });
-  items.forEach(item => observer.observe(item));
-</script>
- 
-</body>
-</html>
