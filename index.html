@@ -18,20 +18,61 @@
     .topnav {
       position: relative;
     }
-    .theme-toggle {
+ 
+    /* Toggle switch wrapper */
+    .toggle-wrapper {
       position: absolute;
-      right: 0;
-      top: 0;
-      height: 100%;
-      background: none;
-      border: none;
-      cursor: pointer;
-      font-size: 20px;
-      padding: 0 22px;
-      line-height: 1;
+      right: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      align-items: center;
     }
-    .theme-toggle:hover {
-      background-color: #fff3f0;
+ 
+    /* Hidden checkbox */
+    .toggle-checkbox {
+      display: none;
+    }
+ 
+    /* The sliding track */
+    .toggle-label {
+      position: relative;
+      display: inline-block;
+      width: 54px;
+      height: 28px;
+      background-color: #ddd;
+      border-radius: 34px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+ 
+    /* The knob with icon inside */
+    .toggle-label::after {
+      content: '☀️';
+      position: absolute;
+      width: 22px;
+      height: 22px;
+      left: 3px;
+      top: 3px;
+      background-color: white;
+      border-radius: 50%;
+      transition: transform 0.3s ease;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      line-height: 22px;
+      text-align: center;
+    }
+ 
+    /* Checked state - knob slides right, track goes pink, icon changes */
+    .toggle-checkbox:checked + .toggle-label {
+      background-color: #e76e70;
+    }
+    .toggle-checkbox:checked + .toggle-label::after {
+      content: '🌙';
+      transform: translateX(26px);
     }
  
     body.dark-mode {
@@ -68,7 +109,9 @@
       color: #cccccc !important;
     }
  
-    .text p,
+    .text p {
+      color: #000000;
+    }
     body.dark-mode .text p {
       color: #cccccc !important;
     }
@@ -98,10 +141,7 @@
       filter: brightness(0) invert(1);
     }
  
-    /* laptop image.png → invert to flip dark to light while keeping green */
-    body.dark-mode .card img[src="laptop image.png"] {
-      filter:  brightness(0) invert(1);
-    }
+ 
  
     body.dark-mode .footer {
       background-color: #2a2a2a !important;
@@ -111,9 +151,10 @@
       color: #aaaaaa !important;
     }
  
+    /* Only GitHub icon goes white — LinkedIn and Gmail have white backgrounds so skip them */
     body.dark-mode img[src="github-icon.png"] {
-  filter: brightness(0) invert(1);
-}
+      filter: brightness(0) invert(1);
+    }
  
     body, .topnav, .topnav a, .footer, .card, .card-wrapper, .heading h1, .title h3, .container {
       transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
@@ -135,7 +176,10 @@
   <a href="portfolio.html">Portfolio</a>
   <a href="certifications.html">Certificates</a>
   <a href="design.html">Designs</a>
-  <button class="theme-toggle" id="themeToggle" title="Toggle dark/light mode">🌙</button>
+  <div class="toggle-wrapper">
+    <input type="checkbox" class="toggle-checkbox" id="themeToggle">
+    <label class="toggle-label" for="themeToggle"></label>
+  </div>
 </div>
  
 <script>
@@ -168,12 +212,12 @@ const toggle = document.getElementById('themeToggle');
  
 if (localStorage.getItem('theme') === 'dark') {
   document.body.classList.add('dark-mode');
-  toggle.textContent = '☀️';
+  toggle.checked = true;
 }
  
-toggle.addEventListener('click', () => {
-  const isDark = document.body.classList.toggle('dark-mode');
-  toggle.textContent = isDark ? '☀️' : '🌙';
+toggle.addEventListener('change', () => {
+  const isDark = toggle.checked;
+  document.body.classList.toggle('dark-mode', isDark);
   localStorage.setItem('theme', isDark ? 'dark' : 'light');
 });
 </script>
@@ -210,7 +254,7 @@ toggle.addEventListener('click', () => {
   </div>
  
   <div class="card">
-    <img src="laptop image.png" alt="freelancer">
+    <img src="laptop.png" alt="freelancer">
     <div class="card-container">
       <h4><b>Freelancer</b></h4>
       <p>As a freelance UI/UX designer, I create intuitive, user-centered designs that enhance digital experiences and drive user engagement.</p>

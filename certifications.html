@@ -18,20 +18,61 @@
     .topnav {
       position: relative;
     }
-    .theme-toggle {
+ 
+    /* Toggle switch wrapper */
+    .toggle-wrapper {
       position: absolute;
-      right: 0;
-      top: 0;
-      height: 100%;
-      background: none;
-      border: none;
-      cursor: pointer;
-      font-size: 20px;
-      padding: 0 22px;
-      line-height: 1;
+      right: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      align-items: center;
     }
-    .theme-toggle:hover {
-      background-color: #fff3f0;
+ 
+    /* Hidden checkbox */
+    .toggle-checkbox {
+      display: none;
+    }
+ 
+    /* The sliding track */
+    .toggle-label {
+      position: relative;
+      display: inline-block;
+      width: 54px;
+      height: 28px;
+      background-color: #ddd;
+      border-radius: 34px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+ 
+    /* The knob with icon inside */
+    .toggle-label::after {
+      content: '☀️';
+      position: absolute;
+      width: 22px;
+      height: 22px;
+      left: 3px;
+      top: 3px;
+      background-color: white;
+      border-radius: 50%;
+      transition: transform 0.3s ease;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      line-height: 22px;
+      text-align: center;
+    }
+ 
+    /* Checked state - knob slides right, track goes pink, icon changes */
+    .toggle-checkbox:checked + .toggle-label {
+      background-color: #e76e70;
+    }
+    .toggle-checkbox:checked + .toggle-label::after {
+      content: '🌙';
+      transform: translateX(26px);
     }
  
     body.dark-mode {
@@ -80,8 +121,8 @@
       color: #aaaaaa !important;
     }
     body.dark-mode img[src="github-icon.png"] {
-  filter: brightness(0) invert(1);
-}
+      filter: brightness(0) invert(1);
+    }
  
     body, .topnav, .topnav a, .footer, .certification-item, .heading h1 {
       transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
@@ -102,7 +143,10 @@
   <a href="portfolio.html">Portfolio</a>
   <a class="active" href="certifications.html">Certificates</a>
   <a href="design.html">Designs</a>
-  <button class="theme-toggle" id="themeToggle" title="Toggle dark/light mode">🌙</button>
+  <div class="toggle-wrapper">
+    <input type="checkbox" class="toggle-checkbox" id="themeToggle">
+    <label class="toggle-label" for="themeToggle"></label>
+  </div>
 </div>
  
 <script>
@@ -135,12 +179,12 @@ const toggle = document.getElementById('themeToggle');
  
 if (localStorage.getItem('theme') === 'dark') {
   document.body.classList.add('dark-mode');
-  toggle.textContent = '☀️';
+  toggle.checked = true;
 }
  
-toggle.addEventListener('click', () => {
-  const isDark = document.body.classList.toggle('dark-mode');
-  toggle.textContent = isDark ? '☀️' : '🌙';
+toggle.addEventListener('change', () => {
+  const isDark = toggle.checked;
+  document.body.classList.toggle('dark-mode', isDark);
   localStorage.setItem('theme', isDark ? 'dark' : 'light');
 });
 </script>
