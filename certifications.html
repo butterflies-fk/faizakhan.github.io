@@ -253,4 +253,23 @@ toggle.addEventListener('change', () => {
     </a>
   </div>
 </div>
+
+<!-- Scroll Animation Script -->
+<script>
+  const items = document.querySelectorAll('.design-item');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  });
+  items.forEach(item => observer.observe(item));
+</script>
+ 
+</body>
+</html>
  
