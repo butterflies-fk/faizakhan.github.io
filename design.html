@@ -180,12 +180,12 @@
  
   if (localStorage.getItem('theme') === 'dark') {
     document.body.classList.add('dark-mode');
-    toggle.textContent = '☀️';
+    toggle.checked = true;
   }
  
-  toggle.addEventListener('click', () => {
-    const isDark = document.body.classList.toggle('dark-mode');
-    toggle.textContent = isDark ? '☀️' : '🌙';
+  toggle.addEventListener('change', () => {
+    const isDark = toggle.checked;
+    document.body.classList.toggle('dark-mode', isDark);
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
   });
 </script>
