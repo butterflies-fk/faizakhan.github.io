@@ -13,13 +13,11 @@
  
   <title>My Portfolio 👩‍💻</title>
  
-  <!-- ========== DARK/LIGHT MODE STYLES ========== -->
   <style>
     .topnav {
       position: relative;
     }
  
-    /* Toggle switch wrapper */
     .toggle-wrapper {
       position: absolute;
       right: 18px;
@@ -29,12 +27,10 @@
       align-items: center;
     }
  
-    /* Hidden checkbox */
     .toggle-checkbox {
       display: none;
     }
  
-    /* The sliding track */
     .toggle-label {
       position: relative;
       display: inline-block;
@@ -46,7 +42,6 @@
       transition: background-color 0.3s ease;
     }
  
-    /* The knob with icon inside */
     .toggle-label::after {
       content: '☀️';
       position: absolute;
@@ -66,7 +61,6 @@
       text-align: center;
     }
  
-    /* Checked state - knob slides right, track goes pink, icon changes */
     .toggle-checkbox:checked + .toggle-label {
       background-color: #f4a0a2;
     }
@@ -91,29 +85,26 @@
       background-color: #fff3f0 !important;
       color: #000000 !important;
     }
-    body.dark-mode .theme-toggle:hover {
-      background-color: #fff3f0 !important;
-    }
- 
+
     .header h1,
     body.dark-mode .header h1 {
       color: #000000 !important;
     }
- 
+
     body.dark-mode .heading h1 {
       color: #f4a0a2 !important;
     }
-    body.dark-mode .content-container,
-    body.dark-mode .portfolio-item {
-      background-color: #1a1a1a !important;
+    body.dark-mode .portfolio-card {
+      background-color: #242424 !important;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3) !important;
     }
-    body.dark-mode .portfolio-item h2 {
-      color: #f4a0a2 !important;
-    }
-    body.dark-mode .portfolio-item p {
+    body.dark-mode .portfolio-card h2 {
       color: #cccccc !important;
     }
-    body.dark-mode .portfolio-item a {
+    body.dark-mode .portfolio-card p {
+      color: #cccccc !important;
+    }
+    body.dark-mode .portfolio-card a {
       color: #f4a0a2 !important;
     }
     body.dark-mode .footer {
@@ -126,12 +117,116 @@
     body.dark-mode img[src="github-icon.png"] {
       filter: brightness(0) invert(1);
     }
- 
-    body, .topnav, .topnav a, .footer, .portfolio-item, .heading h1 {
+
+    body, .topnav, .topnav a, .footer, .portfolio-card, .heading h1 {
       transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
     }
+
+    /* ========== PORTFOLIO CARDS ========== */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      max-width: 1400px;
+      margin: 50px auto;
+      padding: 0 40px;
+    }
+
+    .portfolio-card {
+      background-color: white;
+      border-radius: 14px;
+      padding: 24px 20px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .portfolio-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 40px rgba(255, 203, 204, 0.3);
+    }
+
+    .portfolio-card img {
+      width: 100%;
+      max-width: 280px;
+      height: 180px;
+      object-fit: contain;
+      border-radius: 10px;
+      margin-bottom: 18px;
+      border: 1px solid #f0f0f0;
+    }
+
+    .portfolio-card h2 {
+      font-size: 17px;
+      font-weight: 600;
+      color: #000000;
+      margin: 0 0 12px;
+      line-height: 1.4;
+    }
+
+    .portfolio-card p {
+      font-size: 14px;
+      color: #000000;
+      line-height: 1.7;
+      margin: 0;
+      text-align: center;
+    }
+
+    .portfolio-card a {
+      color: #e76e70;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .portfolio-card a:hover {
+      text-decoration: underline;
+    }
+
+    /* FOOTER */
+    .footer {
+      background-color: #ffcbcc;
+      color: black;
+      text-align: center;
+      padding: 20px 0;
+      position: relative;
+      margin-top: 60px;
+    }
+
+    .social-icons {
+      position: absolute;
+      bottom: 10px;
+      left: 20px;
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-icon {
+      width: 30px;
+      height: auto;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .footer-icon:hover {
+      transform: scale(1.2);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0 20px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .portfolio-grid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
-  <!-- ============================================ -->
 </head>
 <body>
  
@@ -153,83 +248,74 @@
 </div>
  
 <script>
-// ---- Quote rotator ----
-const quotes = [
-  "Rise above, always.",
-  "Progress over perfection.",
-  "Chase the impossible.",
-  "Strength lies within.",
-  "Trust the process.",
-  "Dream, then do.",
-  "Stay relentless.",
-  "Fear less, live more.",
-  "Make it happen.",
-  "You are the answer."
-];
+  const quotes = [
+    "Rise above, always.",
+    "Progress over perfection.",
+    "Chase the impossible.",
+    "Strength lies within.",
+    "Trust the process.",
+    "Dream, then do.",
+    "Stay relentless.",
+    "Fear less, live more.",
+    "Make it happen.",
+    "You are the answer."
+  ];
  
-function changeQuote() {
-  const quoteHeader = document.getElementById('quote-header');
-  const randomIndex = Math.floor(Math.random() * quotes.length);
-  quoteHeader.textContent = quotes[randomIndex];
-  quoteHeader.style.opacity = 0;
-  setTimeout(() => { quoteHeader.style.opacity = 1; }, 100);
-}
-setInterval(changeQuote, 7000);
-changeQuote();
+  function changeQuote() {
+    const quoteHeader = document.getElementById('quote-header');
+    const randomIndex = Math.floor(Math.random() * quotes.length);
+    quoteHeader.textContent = quotes[randomIndex];
+    quoteHeader.style.opacity = 0;
+    setTimeout(() => { quoteHeader.style.opacity = 1; }, 100);
+  }
+  setInterval(changeQuote, 7000);
+  changeQuote();
  
-// ---- Dark / Light mode ----
-const toggle = document.getElementById('themeToggle');
+  const toggle = document.getElementById('themeToggle');
  
-if (localStorage.getItem('theme') === 'dark') {
-  document.body.classList.add('dark-mode');
-  toggle.checked = true;
-}
+  if (localStorage.getItem('theme') === 'dark') {
+    document.body.classList.add('dark-mode');
+    toggle.checked = true;
+  }
  
-toggle.addEventListener('change', () => {
-  const isDark = toggle.checked;
-  document.body.classList.toggle('dark-mode', isDark);
-  localStorage.setItem('theme', isDark ? 'dark' : 'light');
-});
+  toggle.addEventListener('change', () => {
+    const isDark = toggle.checked;
+    document.body.classList.toggle('dark-mode', isDark);
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  });
 </script>
  
-<!--HOME HEADERS-->
+<!--HEADING-->
 <div class="heading">
   <h1>My Portfolio</h1>
 </div>
- 
-<!--EXPERIENCE-->
-<div class="content-container">
-  <div class="portfolio-item">
-    <img src="hacjnight.png" alt="Presentation at HackKnight">
-    <div>
-      <h2>HalalBytes</h2>
-      <p>HalalBytes is a project from my first hackathon, where my team won Best Beginner Hack. We faced challenges with API calls and integrating Firebase Real-Time Database, but our persistence and teamwork led us to the prototyping stage. It was also my first time using Figma, which was crucial for visualizing and iterating on our designs. The experience deepened my appreciation for both development and design. Check out the project on <a href="https://devpost.com/software/halal-bytes" target="_blank">Devpost</a>.</p>
-    </div>
+
+<div class="portfolio-grid">
+
+  <div class="portfolio-card">
+    <img src="hacjnight.png" alt="Presentation at HackKnight" />
+    <h2>HalalBytes</h2>
+    <p>My first hackathon project, where my team won Best Beginner Hack. We tackled API calls and Firebase integration, reaching the prototyping stage. My first time using Figma deepened my appreciation for both development and design. Check out the project on <a href="https://devpost.com/software/halal-bytes" target="_blank">Devpost</a>.</p>
   </div>
-  
-  <div class="portfolio-item">
-    <img src="website.webp" alt="Sociology Website Screenshot">
-    <div>
-      <h2>QC Sociology - Department Webmaster</h2>
-      <p>As the Department Webmaster for Queens College Sociology, I enhance the department's digital presence by developing web pages, showcasing programs, faculty, and resources. I also design graphics, create materials, and produce audio-visual content to support initiatives and communications. Check out the website here <a href="https://qcsociology.commons.gc.cuny.edu/" target="_blank">QC Sociology Website</a>.</p>
-    </div>
+
+  <div class="portfolio-card">
+    <img src="website.webp" alt="Sociology Website Screenshot" />
+    <h2>QC Sociology — Department Webmaster</h2>
+    <p>I enhance the department's digital presence by developing web pages, designing graphics, and producing content to support programs, faculty, and initiatives. Check out the <a href="https://qcsociology.commons.gc.cuny.edu/" target="_blank">QC Sociology Website</a>.</p>
   </div>
-  
-  <div class="portfolio-item">
-    <img src="girls who code.png" alt="Girls Who Code Queens College Logo">
-    <div>
-      <h2>Girls Who Code - College Mentor</h2>
-      <p>As a college mentor, I organize a fall coding event and a spring campus visit for high school clubs, offering students a chance to explore coding, college life, and tech careers. I also participate in speed networking with corporate partners and engage in financial literacy initiatives to plan my future goals.</p>
-    </div>
+
+  <div class="portfolio-card">
+    <img src="girls who code.png" alt="Girls Who Code Queens College Logo" />
+    <h2>Girls Who Code — College Mentor</h2>
+    <p>I organize a fall coding event and a spring campus visit for high school clubs, offering students a chance to explore coding, college life, and tech careers. I also participate in speed networking and financial literacy initiatives.</p>
   </div>
- 
-  <div class="portfolio-item">
-    <img src="ubiq.webp" alt="Ubiq Certificate">
-    <div>
-      <h2>Ubiq Insider Program</h2>
-      <p>I joined the Ubiq Insider Program, gaining hands-on experience with Ubiq, a spatial media platform that transforms digital memories into 3D environments. I tested features like spatial storytelling, gave feedback on privacy settings, helped brainstorm UI/UX improvements, and explored how emerging tech is changing the way we relive memories.</p>
-    </div>
+
+  <div class="portfolio-card">
+    <img src="ubiq.webp" alt="Ubiq Certificate" />
+    <h2>Ubiq Insider Program</h2>
+    <p>Gained hands-on experience with Ubiq, a spatial media platform transforming digital memories into 3D environments. I tested features, gave feedback on privacy settings, helped brainstorm UI/UX improvements, and explored how emerging tech is changing the way we relive memories.</p>
   </div>
+
 </div>
  
 <!-- FOOTER -->
@@ -242,7 +328,7 @@ toggle.addEventListener('change', () => {
     <a href="https://github.com/butterflies-fk" target="_blank">
       <img src="github-icon.png" alt="GitHub" class="footer-icon">
     </a>
-    <a href="mailto:khanfaiza3000@.com" target="_blank">
+    <a href="mailto:khanfaiza3000@gmail.com" target="_blank">
       <img src="gmail-icon.png" alt="Gmail" class="footer-icon">
     </a>
   </div>
