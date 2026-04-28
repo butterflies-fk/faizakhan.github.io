@@ -13,13 +13,11 @@
  
   <title>My Certifications 🏆</title>
  
-  <!-- ========== DARK/LIGHT MODE STYLES ========== -->
   <style>
     .topnav {
       position: relative;
     }
  
-    /* Toggle switch wrapper */
     .toggle-wrapper {
       position: absolute;
       right: 18px;
@@ -29,12 +27,10 @@
       align-items: center;
     }
  
-    /* Hidden checkbox */
     .toggle-checkbox {
       display: none;
     }
  
-    /* The sliding track */
     .toggle-label {
       position: relative;
       display: inline-block;
@@ -46,7 +42,6 @@
       transition: background-color 0.3s ease;
     }
  
-    /* The knob with icon inside */
     .toggle-label::after {
       content: '☀️';
       position: absolute;
@@ -66,7 +61,6 @@
       text-align: center;
     }
  
-    /* Checked state - knob slides right, track goes pink, icon changes */
     .toggle-checkbox:checked + .toggle-label {
       background-color: #f4a0a2;
     }
@@ -91,26 +85,23 @@
       background-color: #fff3f0 !important;
       color: #000000 !important;
     }
-    body.dark-mode .theme-toggle:hover {
-      background-color: #fff3f0 !important;
-    }
- 
+
     .header h1,
     body.dark-mode .header h1 {
       color: #000000 !important;
     }
- 
+
     body.dark-mode .heading h1 {
       color: #f4a0a2 !important;
     }
-    body.dark-mode .certifications-container,
-    body.dark-mode .certification-item {
-      background-color: #1a1a1a !important;
+    body.dark-mode .cert-card {
+      background-color: #242424 !important;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3) !important;
     }
-    body.dark-mode .certification-item h2 {
-      color: #f4a0a2 !important;
+    body.dark-mode .cert-card h2 {
+      color: #cccccc !important;
     }
-    body.dark-mode .certification-item p {
+    body.dark-mode .cert-card p {
       color: #cccccc !important;
     }
     body.dark-mode .footer {
@@ -123,12 +114,105 @@
     body.dark-mode img[src="github-icon.png"] {
       filter: brightness(0) invert(1);
     }
- 
-    body, .topnav, .topnav a, .footer, .certification-item, .heading h1 {
+
+    body, .topnav, .topnav a, .footer, .cert-card, .heading h1 {
       transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
     }
+
+    /* ========== CERTIFICATIONS ========== */
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      max-width: 1400px;
+      margin: 50px auto;
+      padding: 0 40px;
+    }
+
+    .cert-card {
+      background-color: white;
+      border-radius: 14px;
+      padding: 24px 20px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .cert-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 40px rgba(255, 203, 204, 0.3);
+    }
+
+    .cert-card img {
+      width: 100%;
+      max-width: 280px;
+      height: 180px;
+      object-fit: contain;
+      border-radius: 10px;
+      margin-bottom: 18px;
+      border: 1px solid #f0f0f0;
+    }
+
+    .cert-card h2 {
+      font-size: 17px;
+      font-weight: 600;
+      color: #000000;
+      margin: 0 0 12px;
+      line-height: 1.4;
+    }
+
+    .cert-card p {
+      font-size: 14px;
+      color: #000000;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    /* FOOTER */
+    .footer {
+      background-color: #ffcbcc;
+      color: black;
+      text-align: center;
+      padding: 20px 0;
+      position: relative;
+      margin-top: 60px;
+    }
+
+    .social-icons {
+      position: absolute;
+      bottom: 10px;
+      left: 20px;
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-icon {
+      width: 30px;
+      height: auto;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .footer-icon:hover {
+      transform: scale(1.2);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .cert-grid {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0 20px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .cert-grid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
-  <!-- ============================================ -->
 </head>
 <body>
  
@@ -150,92 +234,80 @@
 </div>
  
 <script>
-// ---- Quote rotator ----
-const quotes = [
-  "Rise above, always.",
-  "Progress over perfection.",
-  "Chase the impossible.",
-  "Strength lies within.",
-  "Trust the process.",
-  "Dream, then do.",
-  "Stay relentless.",
-  "Fear less, live more.",
-  "Make it happen.",
-  "You are the answer."
-];
+  const quotes = [
+    "Rise above, always.",
+    "Progress over perfection.",
+    "Chase the impossible.",
+    "Strength lies within.",
+    "Trust the process.",
+    "Dream, then do.",
+    "Stay relentless.",
+    "Fear less, live more.",
+    "Make it happen.",
+    "You are the answer."
+  ];
  
-function changeQuote() {
-  const quoteHeader = document.getElementById('quote-header');
-  const randomIndex = Math.floor(Math.random() * quotes.length);
-  quoteHeader.textContent = quotes[randomIndex];
-  quoteHeader.style.opacity = 0;
-  setTimeout(() => { quoteHeader.style.opacity = 1; }, 100);
-}
-setInterval(changeQuote, 7000);
-changeQuote();
+  function changeQuote() {
+    const quoteHeader = document.getElementById('quote-header');
+    const randomIndex = Math.floor(Math.random() * quotes.length);
+    quoteHeader.textContent = quotes[randomIndex];
+    quoteHeader.style.opacity = 0;
+    setTimeout(() => { quoteHeader.style.opacity = 1; }, 100);
+  }
+  setInterval(changeQuote, 7000);
+  changeQuote();
  
-// ---- Dark / Light mode ----
-const toggle = document.getElementById('themeToggle');
+  const toggle = document.getElementById('themeToggle');
  
-if (localStorage.getItem('theme') === 'dark') {
-  document.body.classList.add('dark-mode');
-  toggle.checked = true;
-}
+  if (localStorage.getItem('theme') === 'dark') {
+    document.body.classList.add('dark-mode');
+    toggle.checked = true;
+  }
  
-toggle.addEventListener('change', () => {
-  const isDark = toggle.checked;
-  document.body.classList.toggle('dark-mode', isDark);
-  localStorage.setItem('theme', isDark ? 'dark' : 'light');
-});
+  toggle.addEventListener('change', () => {
+    const isDark = toggle.checked;
+    document.body.classList.toggle('dark-mode', isDark);
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  });
 </script>
  
-<!--HOME HEADERS-->
+<!--HEADING-->
 <div class="heading">
   <h1>My Certifications</h1>
 </div>
- 
-<div class="certifications-container">
- 
-  <div class="certification-item">
-    <img src="Full Course Cert.png" alt="Certification 1" />
-    <div>
-      <h2>Google UX Professional Certificate - Google</h2>
-      <p>Developed practical UX design skills including user research, wireframing, prototyping, and usability testing.</p>
-    </div>
+
+<div class="cert-grid">
+
+  <div class="cert-card">
+    <img src="Full Course Cert.png" alt="Google UX Certificate" />
+    <h2>Google UX Professional Certificate — Google</h2>
+    <p>Developed practical UX design skills including user research, wireframing, prototyping, and usability testing.</p>
   </div>
- 
-  <div class="certification-item">
-    <img src="hacjnight.png" alt="Certification 2" />
-    <div>
-      <h2>Best Beginner Hack - HackKnight</h2>
-      <p>Prototyped a mobile app to find nearby halal food spots with map integration, real-time pins, and a weekly leaderboard.</p>
-    </div>
+
+  <div class="cert-card">
+    <img src="hacjnight.png" alt="Best Beginner Hack" />
+    <h2>Best Beginner Hack — HackKnight</h2>
+    <p>Prototyped a mobile app to find nearby halal food spots with map integration, real-time pins, and a weekly leaderboard.</p>
   </div>
- 
-  <div class="certification-item">
-    <img src="cssi.png" alt="Certification 3" />
-    <div>
-      <h2>CSSI - Google</h2>
-      <p>Completed a 4-week Google-led CS program, building a collaborative HTML/CSS project and presenting it live to engineers.</p>
-    </div>
+
+  <div class="cert-card">
+    <img src="cssi.png" alt="CSSI Google" />
+    <h2>CSSI — Google</h2>
+    <p>Completed a 4-week Google-led CS program, building a collaborative HTML/CSS project and presenting it live to engineers.</p>
   </div>
- 
-  <div class="certification-item">
-    <img src="boss.png" alt="Certification 4" />
-    <div>
-      <h2>Bossgirls - Standard Chartered</h2>
-      <p>Explored entrepreneurship through market research, prototyping, and pitching a sustainable fashion startup with mentorship from industry professionals.</p>
-    </div>
+
+  <div class="cert-card">
+    <img src="boss.png" alt="Bossgirls Standard Chartered" />
+    <h2>Bossgirls — Standard Chartered</h2>
+    <p>Explored entrepreneurship through market research, prototyping, and pitching a sustainable fashion startup with mentorship from industry professionals.</p>
   </div>
- 
-  <div class="certification-item">
-    <img src="web design cert.png" alt="Certification 5" />
-    <div>
-      <h2>Web Design - GWC</h2>
-      <p>Earned a certificate in Web Design for Social Good from Girls Who Code, focusing on creating impact-driven websites using HTML and CSS.</p>
-    </div>
+
+  <div class="cert-card">
+    <img src="web design cert.png" alt="Web Design GWC" />
+    <h2>Web Design — GWC</h2>
+    <p>Earned a certificate in Web Design for Social Good from Girls Who Code, focusing on creating impact-driven websites using HTML and CSS.</p>
   </div>
- 
+
 </div>
  
 <!-- FOOTER -->
@@ -253,23 +325,6 @@ toggle.addEventListener('change', () => {
     </a>
   </div>
 </div>
-
-<!-- Scroll Animation Script -->
-<script>
-  const items = document.querySelectorAll('.certification-item');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-  });
-  items.forEach(item => observer.observe(item));
-</script>
  
 </body>
 </html>
- 
