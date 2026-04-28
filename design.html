@@ -134,29 +134,25 @@
       padding: 0 40px;
     }
 
-    .flora-divider {
-      width: 60px;
-      height: 3px;
-      background: linear-gradient(90deg, #4a7c5e, #a8d5b5);
-      border-radius: 2px;
-      margin: 0 auto 30px;
-    }
-
     /* Problem statement */
     .flora-problem {
       background-color: #f0f7f3;
       border-left: 4px solid #4a7c5e;
       border-radius: 0 12px 12px 0;
       padding: 18px 24px;
-      margin-bottom: 40px;
       font-style: italic;
       font-size: 16px;
-      color: #3a3a3a;
+      color: #000000;
       line-height: 1.7;
       max-width: 800px;
       margin-left: auto;
       margin-right: auto;
       margin-bottom: 40px;
+    }
+
+    .halalbytes-problem {
+      background-color: #fff3f0;
+      border-left: 4px solid #e76e70;
     }
 
     /* Hi-Fi prototype grid */
@@ -203,7 +199,7 @@
 
     .flora-hifi-card p {
       font-size: 13px;
-      color: #666;
+      color: #000000;
       line-height: 1.6;
       margin: 0;
       text-align: center;
@@ -270,13 +266,13 @@
     .flora-a11y-card h3 {
       font-size: 15px;
       font-weight: 600;
-      color: #3a3a3a;
+      color: #000000;
       margin: 0 0 10px;
     }
 
     .flora-a11y-card p {
       font-size: 14px;
-      color: #666;
+      color: #000000;
       line-height: 1.7;
       margin: 0;
     }
@@ -302,7 +298,8 @@
     }
 
     .flora-cta a:hover {
-      background-color: #3a6a4e;
+      background-color: #4a7c5e;
+      opacity: 0.85;
       transform: translateY(-2px);
     }
 
@@ -310,10 +307,18 @@
       font-family: 'Croissant One', cursive;
       font-size: 28px;
       font-weight: normal;
-      color: #4a7c5e;
+      color: #000000;
       text-align: center;
       margin-bottom: 6px;
       text-decoration: none;
+    }
+
+    .flora-section-title.halalbytes-title {
+      color: #000000;
+    }
+
+    .flora-hifi-card h3.halalbytes-card-title {
+      color: #e76e70;
     }
 
     /* Sub-section labels */
@@ -321,7 +326,7 @@
       font-family: 'Lora', serif;
       font-size: 18px;
       font-weight: 600;
-      color: #4a7c5e;
+      color: #000000;
       margin: 0 0 16px;
       text-align: center;
     }
@@ -329,21 +334,41 @@
     /* Dark mode overrides for Flora */
     body.dark-mode .flora-problem {
       background-color: #243028;
-      color: #cccccc;
+      color: #e0e0e0 !important;
+    }
+    body.dark-mode .halalbytes-problem {
+      background-color: #2e2020;
+      color: #e0e0e0 !important;
     }
     body.dark-mode .flora-hifi-card,
     body.dark-mode .flora-a11y-card {
       background-color: #242424;
       box-shadow: 0 4px 20px rgba(0,0,0,0.3);
     }
-    body.dark-mode .flora-hifi-card h3,
-    body.dark-mode .flora-a11y-card h3,
-    body.dark-mode .flora-sub-label,
-    body.dark-mode .flora-section-title {
-      color: #a8d5b5 !important;
+    /* Section titles and sub-labels → light gray in dark mode */
+    body.dark-mode .flora-section-title,
+    body.dark-mode .flora-sub-label {
+      color: #cccccc !important;
     }
+    /* HalalBytes title → light gray in dark mode */
+    body.dark-mode .flora-section-title.halalbytes-title {
+      color: #cccccc !important;
+    }
+    /* Flora hifi card titles → keep green in dark mode */
+    body.dark-mode .flora-hifi-card h3 {
+      color: #4a7c5e !important;
+    }
+    /* HalalBytes hifi card titles → coral in dark mode */
+    body.dark-mode .flora-hifi-card h3.halalbytes-card-title {
+      color: #f4a0a2 !important;
+    }
+    /* Accessibility card titles → light gray in dark mode */
+    body.dark-mode .flora-a11y-card h3 {
+      color: #cccccc !important;
+    }
+    body.dark-mode .flora-hifi-card p,
     body.dark-mode .flora-a11y-card p {
-      color: #aaaaaa !important;
+      color: #cccccc !important;
     }
 
     /* Section separator */
@@ -440,7 +465,6 @@
 <div class="flora-section">
 
   <h2 class="flora-section-title">Flora — Plant Diagnosis App</h2>
-  <div class="flora-divider"></div>
 
   <!-- Problem Statement -->
   <p class="flora-problem">
@@ -515,28 +539,32 @@
 
 <!-- ========== HALALBYTES SECTION ========== -->
 <div class="flora-section">
-  <h2 class="flora-section-title">HalalBytes — Halal Restaurant Finder</h2>
-  <div class="flora-divider" style="background: linear-gradient(90deg, #e76e70, #ffcbcc);"></div>
+  <h2 class="flora-section-title halalbytes-title">HalalBytes — Halal Restaurant Finder</h2>
+
+  <!-- Problem Statement -->
+  <p class="flora-problem halalbytes-problem">
+    "Finding halal food shouldn't require endless Googling — yet most Muslims still have no single, trustworthy place to discover certified restaurants nearby."
+  </p>
 
   <div class="flora-hifi-grid">
     <div class="flora-hifi-card">
       <img src="HalalBytes - Welcome-watermarked.png" alt="HalalBytes Welcome Screen" />
-      <h3 style="color: #e76e70;">Welcome Page</h3>
+      <h3 class="halalbytes-card-title">Welcome Page</h3>
       <p>Clean splash screen with HalalBytes' coral branding and a single call-to-action to get started.</p>
     </div>
     <div class="flora-hifi-card">
       <img src="HalalBytes - Map-watermarked.png" alt="HalalBytes Map View" />
-      <h3 style="color: #e76e70;">Map View</h3>
+      <h3 class="halalbytes-card-title">Map View</h3>
       <p>Location-based search with pin markers for nearby halal restaurants, powered by Google Maps.</p>
     </div>
     <div class="flora-hifi-card">
       <img src="HalalBytes - Home Page-watermarked.png" alt="HalalBytes Home Page" />
-      <h3 style="color: #e76e70;">Home Page</h3>
+      <h3 class="halalbytes-card-title">Home Page</h3>
       <p>Main discovery screen with card-based browsing, ratings, distance, and filtering options.</p>
     </div>
     <div class="flora-hifi-card">
       <img src="HalalBytes - Leaderboard-watermarked.png" alt="HalalBytes Leaderboard" />
-      <h3 style="color: #e76e70;">Leaderboard</h3>
+      <h3 class="halalbytes-card-title">Leaderboard</h3>
       <p>Gamified feature encouraging community engagement through weekly review challenges.</p>
     </div>
   </div>
