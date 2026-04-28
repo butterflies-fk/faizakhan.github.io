@@ -19,7 +19,6 @@
       position: relative;
     }
  
-    /* Toggle switch wrapper */
     .toggle-wrapper {
       position: absolute;
       right: 18px;
@@ -29,12 +28,10 @@
       align-items: center;
     }
  
-    /* Hidden checkbox */
     .toggle-checkbox {
       display: none;
     }
  
-    /* The sliding track */
     .toggle-label {
       position: relative;
       display: inline-block;
@@ -46,7 +43,6 @@
       transition: background-color 0.3s ease;
     }
  
-    /* The knob with icon inside */
     .toggle-label::after {
       content: '☀️';
       position: absolute;
@@ -66,7 +62,6 @@
       text-align: center;
     }
  
-    /* Checked state - knob slides right, track goes pink, icon changes */
     .toggle-checkbox:checked + .toggle-label {
       background-color: #f4a0a2;
     }
@@ -100,7 +95,6 @@
       color: #000000 !important;
     }
  
-    /* Override design.css responsive rules that shrink the quote */
     #quote-header {
       font-size: inherit !important;
     }
@@ -128,12 +122,255 @@
     body.dark-mode img[src="github-icon.png"] {
       filter: brightness(0) invert(1);
     }
- 
+
     body, .topnav, .topnav a, .footer, .design-item, .heading h1 {
       transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
     }
+
+    /* ========== FLORA SECTION ========== */
+    .flora-section {
+      max-width: 1400px;
+      margin: 60px auto 0;
+      padding: 0 40px;
+    }
+
+    .flora-section-title {
+      font-family: 'Croissant One', cursive;
+      font-size: 28px;
+      font-weight: normal;
+      color: #4a7c5e;
+      text-align: center;
+      margin-bottom: 6px;
+    }
+
+    .flora-divider {
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, #4a7c5e, #a8d5b5);
+      border-radius: 2px;
+      margin: 0 auto 30px;
+    }
+
+    /* Problem statement */
+    .flora-problem {
+      background-color: #f0f7f3;
+      border-left: 4px solid #4a7c5e;
+      border-radius: 0 12px 12px 0;
+      padding: 18px 24px;
+      margin-bottom: 40px;
+      font-style: italic;
+      font-size: 16px;
+      color: #3a3a3a;
+      line-height: 1.7;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 40px;
+    }
+
+    /* Hi-Fi prototype grid */
+    .flora-hifi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .flora-hifi-card {
+      background-color: white;
+      border-radius: 14px;
+      padding: 20px 15px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .flora-hifi-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(74, 124, 94, 0.15);
+    }
+
+    .flora-hifi-card img {
+      width: 100%;
+      max-width: 160px;
+      height: 280px;
+      object-fit: contain;
+      border-radius: 10px;
+      margin-bottom: 14px;
+      border: 1px solid #eee;
+    }
+
+    .flora-hifi-card h3 {
+      font-size: 14px;
+      color: #4a7c5e;
+      margin: 0 0 8px;
+      font-weight: 600;
+    }
+
+    .flora-hifi-card p {
+      font-size: 13px;
+      color: #666;
+      line-height: 1.6;
+      margin: 0;
+      text-align: center;
+    }
+
+    body.dark-mode .flora-hifi-card p {
+      color: #aaaaaa !important;
+    }
+
+    /* Persona image */
+    .flora-persona-img-wrap {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .flora-persona-img {
+      width: 100%;
+      max-width: 860px;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      border: 1px solid #eee;
+    }
+
+    body.dark-mode .flora-persona-img {
+      border-color: #333;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    }
+
+    /* Accessibility cards */
+    .flora-accessibility {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .flora-a11y-card {
+      background-color: white;
+      border-radius: 14px;
+      padding: 24px 20px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      text-align: center;
+      transition: transform 0.2s ease;
+    }
+
+    .flora-a11y-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .flora-a11y-number {
+      width: 38px;
+      height: 38px;
+      background-color: #4a7c5e;
+      color: white;
+      border-radius: 50%;
+      font-size: 16px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 14px;
+    }
+
+    .flora-a11y-card h3 {
+      font-size: 15px;
+      font-weight: 600;
+      color: #3a3a3a;
+      margin: 0 0 10px;
+    }
+
+    .flora-a11y-card p {
+      font-size: 14px;
+      color: #666;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    /* Live site button */
+    .flora-cta {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .flora-cta a {
+      display: inline-block;
+      background-color: #4a7c5e;
+      color: white;
+      text-decoration: none;
+      padding: 14px 36px;
+      border-radius: 30px;
+      font-size: 15px;
+      font-family: 'Lora', serif;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .flora-cta a:hover {
+      background-color: #3a6a4e;
+      transform: translateY(-2px);
+    }
+
+    /* Sub-section labels */
+    .flora-sub-label {
+      font-family: 'Croissant One', cursive;
+      font-size: 18px;
+      font-weight: normal;
+      color: #4a7c5e;
+      margin: 0 0 16px;
+      text-align: left;
+    }
+
+    /* Dark mode overrides for Flora */
+    body.dark-mode .flora-problem {
+      background-color: #243028;
+      color: #cccccc;
+    }
+    body.dark-mode .flora-hifi-card,
+    body.dark-mode .flora-a11y-card {
+      background-color: #242424;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+    body.dark-mode .flora-hifi-card h3,
+    body.dark-mode .flora-a11y-card h3,
+    body.dark-mode .flora-sub-label,
+    body.dark-mode .flora-section-title {
+      color: #a8d5b5 !important;
+    }
+    body.dark-mode .flora-a11y-card p {
+      color: #aaaaaa !important;
+    }
+
+    /* Section separator */
+    .section-separator {
+      max-width: 1400px;
+      margin: 60px auto 0;
+      padding: 0 40px;
+      border: none;
+      border-top: 2px dashed #f0f0f0;
+    }
+
+    body.dark-mode .section-separator {
+      border-top-color: #333;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .flora-section { padding: 0 20px; }
+      .flora-persona { grid-template-columns: 1fr; }
+      .flora-accessibility { grid-template-columns: 1fr; }
+      .flora-hifi-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 600px) {
+      .flora-hifi-grid { grid-template-columns: repeat(2, 1fr); }
+      .flora-section-title { font-size: 22px; }
+    }
   </style>
-  <!-- ============================================ -->
 </head>
  
 <body>
@@ -156,7 +393,6 @@
 </div>
  
 <script>
-  // ---- Quote rotator ----
   const quotes = [
     "Rise above, always.",
     "Progress over perfection.",
@@ -180,7 +416,6 @@
   setInterval(changeQuote, 7000);
   changeQuote();
  
-  // ---- Dark / Light mode ----
   const toggle = document.getElementById('themeToggle');
  
   if (localStorage.getItem('theme') === 'dark') {
@@ -195,11 +430,89 @@
   });
 </script>
  
-<!--HOME HEADERS-->
+<!--HEADING-->
 <div class="heading">
   <h1>My Designs</h1>
 </div>
- 
+
+<!-- ========== FLORA SECTION ========== -->
+<div class="flora-section">
+
+  <h2 class="flora-section-title">Flora — Plant Diagnosis App 🌿</h2>
+  <div class="flora-divider"></div>
+
+  <!-- Problem Statement -->
+  <p class="flora-problem">
+    "Plant owners have no quick, reliable way to diagnose what's wrong with their houseplants — so problems go unnoticed until it's too late."
+  </p>
+
+  <!-- User Persona -->
+  <p class="flora-sub-label">User Persona</p>
+  <div class="flora-persona-img-wrap">
+    <img src="Elena Cruz User Persona.png" alt="Elena Cruz User Persona" class="flora-persona-img" />
+  </div>
+
+  <!-- Hi-Fi Prototypes -->
+  <p class="flora-sub-label">Hi-Fi Prototypes</p>
+  <div class="flora-hifi-grid">
+    <div class="flora-hifi-card">
+      <img src="Flora Welcome Screen.png" alt="Flora Welcome Screen" />
+      <h3>Welcome Page</h3>
+      <p>Clean splash screen with Flora's branding and a single call-to-action to get started.</p>
+    </div>
+    <div class="flora-hifi-card">
+      <img src="Flora Home Page.png" alt="Flora Home Page" />
+      <h3>Home Page</h3>
+      <p>Main dashboard for quick access to plant scanning, saved plants, and care tips.</p>
+    </div>
+    <div class="flora-hifi-card">
+      <img src="Flora Scan Page.png" alt="Flora Scan Page" />
+      <h3>Scan Page</h3>
+      <p>Upload or photograph a plant, or describe symptoms manually to get a diagnosis.</p>
+    </div>
+    <div class="flora-hifi-card">
+      <img src="Flora Scan Results.png" alt="Flora Scan Results" />
+      <h3>Scan Results</h3>
+      <p>Displays the identified issue, possible causes, quick fixes, and prevention tips.</p>
+    </div>
+    <div class="flora-hifi-card">
+      <img src="Flora My Plants.png" alt="Flora My Plants" />
+      <h3>My Plants</h3>
+      <p>Personal plant tracker with watering status and upcoming care reminders.</p>
+    </div>
+  </div>
+
+  <!-- Accessibility -->
+  <p class="flora-sub-label">Accessibility Considerations</p>
+  <div class="flora-accessibility">
+    <div class="flora-a11y-card">
+      <div class="flora-a11y-number">1</div>
+      <h3>Color Contrast</h3>
+      <p>Dark text on a light beige background keeps content readable for users with visual impairments. The earthy brown button stands out clearly, making actions easy to identify.</p>
+    </div>
+    <div class="flora-a11y-card">
+      <div class="flora-a11y-number">2</div>
+      <h3>Clear Navigation</h3>
+      <p>The bottom navigation bar uses both icons and labels, helping users with cognitive difficulties understand where each tab leads and move through the app without confusion.</p>
+    </div>
+    <div class="flora-a11y-card">
+      <div class="flora-a11y-number">3</div>
+      <h3>Simple Layout</h3>
+      <p>Each screen focuses on one task at a time with minimal elements, making it easier to process information — especially helpful for users with attention or cognitive challenges.</p>
+    </div>
+  </div>
+
+  <!-- Live Site CTA -->
+  <div class="flora-cta">
+    <a href="https://flora-plant.vercel.app/" target="_blank">View Flora Live Site →</a>
+  </div>
+
+</div>
+
+<!-- ========== SECTION DIVIDER ========== -->
+<hr class="section-separator">
+
+<!-- ========== HALALBYTES SECTION ========== -->
 <div class="design-container">
   <div class="design-item">
     <img src="HalalBytes - Welcome-watermarked.png" alt="HalalBytes Welcome Screen" />
@@ -225,7 +538,7 @@
     <p>Gamified leaderboard feature encouraging user engagement through weekly challenges. Designed to build community and incentivize restaurant reviews and check-ins with a competitive yet friendly interface.</p>
   </div>
 </div>
- 
+
 <!-- FOOTER -->
 <div class="footer">
   <p>© 2025 Faiza Khan. All rights reserved.</p>
@@ -242,7 +555,6 @@
   </div>
 </div>
  
-<!-- Scroll Animation Script -->
 <script>
   const items = document.querySelectorAll('.design-item');
   const observer = new IntersectionObserver(entries => {
