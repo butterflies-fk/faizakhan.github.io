@@ -13,7 +13,6 @@
  
   <title>My Designs 🎨</title>
  
-  <!-- ========== DARK/LIGHT MODE STYLES ========== -->
   <style>
     .topnav {
       position: relative;
@@ -280,7 +279,7 @@
     /* Live site button */
     .flora-cta {
       text-align: center;
-      margin-bottom: 20px;
+      margin-bottom: 12px;
     }
 
     .flora-cta a {
@@ -301,6 +300,19 @@
       background-color: #4a7c5e;
       opacity: 0.85;
       transform: translateY(-2px);
+    }
+
+    /* Case study note */
+    .flora-case-note {
+      text-align: center;
+      font-size: 14px;
+      color: #888;
+      margin: 0 0 30px;
+      font-style: italic;
+    }
+
+    body.dark-mode .flora-case-note {
+      color: #aaaaaa !important;
     }
 
     .flora-section-title {
@@ -331,7 +343,7 @@
       text-align: center;
     }
 
-    /* Dark mode overrides for Flora */
+    /* Dark mode overrides */
     body.dark-mode .flora-problem {
       background-color: #243028;
       color: #e0e0e0 !important;
@@ -345,24 +357,19 @@
       background-color: #242424;
       box-shadow: 0 4px 20px rgba(0,0,0,0.3);
     }
-    /* Section titles and sub-labels → light gray in dark mode */
     body.dark-mode .flora-section-title,
     body.dark-mode .flora-sub-label {
       color: #cccccc !important;
     }
-    /* HalalBytes title → light gray in dark mode */
     body.dark-mode .flora-section-title.halalbytes-title {
       color: #cccccc !important;
     }
-    /* Flora hifi card titles → keep green in dark mode */
     body.dark-mode .flora-hifi-card h3 {
       color: #4b7c5e !important;
     }
-    /* HalalBytes hifi card titles → coral in dark mode */
     body.dark-mode .flora-hifi-card h3.halalbytes-card-title {
       color: #c46668 !important;
     }
-    /* Accessibility card titles → light gray in dark mode */
     body.dark-mode .flora-a11y-card h3 {
       color: #cccccc !important;
     }
@@ -531,6 +538,7 @@
   <div class="flora-cta">
     <a href="https://flora-plant.vercel.app/" target="_blank">View Flora Live Site →</a>
   </div>
+  <p class="flora-case-note">Full case study available upon request.</p>
 
 </div>
 
